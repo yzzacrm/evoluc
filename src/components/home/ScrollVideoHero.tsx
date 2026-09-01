@@ -79,6 +79,23 @@ export default function ScrollVideoHero() {
     const cleanups: Array<() => void> = [];
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
+
+      // iOS Safari só decodifica/pinta frames de um <video> depois que ele
+      // já tocou pelo menos uma vez — sem isso, currentTime "raspa" o vídeo
+      // silenciosamente sem desenhar nada na tela. Como está mudo, o
+      // navegador permite esse play() automático; pausamos em seguida para
+      // manter o controle do scroll.
+      const primeForIOS = () => {
+        const playPromise = video.play();
+        if (playPromise) {
+          playPromise
+            .then(() => video.pause())
+            .catch(() => {
+              /* autoplay bloqueado — o scrub ainda funciona nos demais navegadores */
+            });
+        }
+      };
+
       const onError = () => {
         setFailed((prev) => {
           if (prev[i]) return prev;
@@ -87,8 +104,13 @@ export default function ScrollVideoHero() {
           return next;
         });
       };
+
+      video.addEventListener("loadedmetadata", primeForIOS, { once: true });
       video.addEventListener("error", onError);
-      cleanups.push(() => video.removeEventListener("error", onError));
+      cleanups.push(() => {
+        video.removeEventListener("loadedmetadata", primeForIOS);
+        video.removeEventListener("error", onError);
+      });
     });
     return () => cleanups.forEach((fn) => fn());
   }, []);
@@ -117,6 +139,7 @@ export default function ScrollVideoHero() {
                 poster={take.poster}
                 muted
                 playsInline
+                webkit-playsinline="true"
                 preload="auto"
               />
             ) : (
@@ -153,9 +176,10 @@ export default function ScrollVideoHero() {
               {siteConfig.slogan}
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/80">
-              Lançamentos na Zona Leste de São Paulo com engenharia de
-              qualidade, acompanhamento transparente de obra e uma área
-              exclusiva para cada morador.
+              Aqui nascem lares abençoados e famílias felizes. Cada
+              apartamento Evoluc é pensado para guardar as histórias da sua
+              vida, com toda a estrutura de lazer e segurança que sua
+              família merece.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button href="/lancamentos" size="lg">
@@ -193,7 +217,7 @@ export default function ScrollVideoHero() {
 
         <div
           style={{ opacity: scrollCueOpacity }}
-          className="pointer-events-none absolute inset-x-0 bottom-24 flex flex-col items-center text-white/70"
+          className="pointer-events-none absolute inset-x-0 bottom-24 hidden flex-col items-center text-white/70 sm:flex"
         >
           <span className="text-xs font-medium uppercase tracking-[0.3em]">
             Role para ver o decorado
