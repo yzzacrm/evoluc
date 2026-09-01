@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #14181f;
+
+  /* "Azul Confiança" — cor principal oficial da marca Evoluc (#1a3f5c).
+     Tons 700-950 seguem em direção à cor oficial; 50-600 mantidos com
+     contraste testado (AA) para uso em texto de corpo. */
+  --color-ink-950: #1a3f5c;
+  --color-ink-900: #22405b;
+  --color-ink-800: #2a415a;
+  --color-ink-700: #324159;
+  --color-ink-600: #3a4258;
+  --color-ink-500: #545e78;
+  --color-ink-400: #7a8296;
+  --color-ink-300: #a6acba;
+  --color-ink-200: #d3d6dd;
+  --color-ink-100: #eceef2;
+  --color-ink-50: #f6f7f9;
+
+  /* "Laranja Humano" — cor de destaque oficial da marca Evoluc (#f37021) */
+  --color-copper-950: #431c05;
+  --color-copper-900: #6b2b09;
+  --color-copper-800: #93390c;
+  --color-copper-700: #bb4810;
+  --color-copper-600: #f37021;
+  --color-copper-500: #f5813d;
+  --color-copper-400: #f89760;
+  --color-copper-300: #fab182;
+  --color-copper-200: #fccca8;
+  --color-copper-100: #fde3ce;
+  --color-copper-50: #fef4ea;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink-950: var(--color-ink-950);
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-600: var(--color-ink-600);
+  --color-ink-500: var(--color-ink-500);
+  --color-ink-400: var(--color-ink-400);
+  --color-ink-300: var(--color-ink-300);
+  --color-ink-200: var(--color-ink-200);
+  --color-ink-100: var(--color-ink-100);
+  --color-ink-50: var(--color-ink-50);
+
+  --color-copper-950: var(--color-copper-950);
+  --color-copper-900: var(--color-copper-900);
+  --color-copper-800: var(--color-copper-800);
+  --color-copper-700: var(--color-copper-700);
+  --color-copper-600: var(--color-copper-600);
+  --color-copper-500: var(--color-copper-500);
+  --color-copper-400: var(--color-copper-400);
+  --color-copper-300: var(--color-copper-300);
+  --color-copper-200: var(--color-copper-200);
+  --color-copper-100: var(--color-copper-100);
+  --color-copper-50: var(--color-copper-50);
+
+  --font-sans: var(--font-montserrat);
+  --font-display: var(--font-montserrat);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-copper-300);
+  color: var(--color-ink-950);
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
