@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Container from "@/components/ui/Container";
@@ -14,7 +14,7 @@ type Take = {
   caption: string;
 };
 
-const takes: Take[] = [
+const desktopTakes: Take[] = [
   {
     src: "/videos/take-1.mp4",
     poster: "/videos/take-1-poster.jpg",
@@ -35,19 +35,72 @@ const takes: Take[] = [
   },
 ];
 
-const SEGMENT = 1 / takes.length;
+const mobileTakes: Take[] = [
+  {
+    src: "/videos/mobile/take-1.mp4",
+    poster: "/videos/mobile/take-1-poster.jpg",
+    label: "Take 1 — Cozinha planejada",
+    caption: "Bem-vindo ao apartamento decorado Evoluc.",
+  },
+  {
+    src: "/videos/mobile/take-2.mp4",
+    poster: "/videos/mobile/take-2-poster.jpg",
+    label: "Take 2 — Quarto e acabamentos",
+    caption: "Cada detalhe pensado para o seu dia a dia.",
+  },
+  {
+    src: "/videos/mobile/take-3.mp4",
+    poster: "/videos/mobile/take-3-poster.jpg",
+    label: "Take 3 — Sala de estar",
+    caption: "Espaços que reúnem a família.",
+  },
+  {
+    src: "/videos/mobile/take-4.mp4",
+    poster: "/videos/mobile/take-4-poster.jpg",
+    label: "Take 4 — Sala e varanda",
+    caption: "Seu novo endereço, do jeito que você imaginou.",
+  },
+];
 
 function clamp01(n: number) {
   return Math.min(1, Math.max(0, n));
 }
 
+const MOBILE_QUERY = "(max-width: 639px)";
+
+function subscribeToMobileQuery(callback: () => void) {
+  const mql = window.matchMedia(MOBILE_QUERY);
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+
+function useIsMobile() {
+  return useSyncExternalStore(
+    subscribeToMobileQuery,
+    () => window.matchMedia(MOBILE_QUERY).matches,
+    () => false
+  );
+}
+
 export default function ScrollVideoHero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const [failed, setFailed] = useState<boolean[]>([false, false, false]);
+  const isMobile = useIsMobile();
+  const takes = isMobile ? mobileTakes : desktopTakes;
+  const SEGMENT = 1 / takes.length;
+  const [failed, setFailed] = useState<boolean[]>(() =>
+    takes.map(() => false)
+  );
   const [activeIndex, setActiveIndex] = useState(0);
   const [introOpacity, setIntroOpacity] = useState(1);
   const [scrollCueOpacity, setScrollCueOpacity] = useState(1);
+
+  const [syncedTakes, setSyncedTakes] = useState(takes);
+  if (syncedTakes !== takes) {
+    setSyncedTakes(takes);
+    setFailed(takes.map(() => false));
+    setActiveIndex(0);
+  }
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -113,7 +166,7 @@ export default function ScrollVideoHero() {
       });
     });
     return () => cleanups.forEach((fn) => fn());
-  }, []);
+  }, [takes]);
 
   return (
     <section
