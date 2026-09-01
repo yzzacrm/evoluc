@@ -5,6 +5,7 @@ import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import JsonLd from "@/components/JsonLd";
 import { developments, deliveredExamples, Development } from "@/lib/data";
+import { getWhatsappUrl } from "@/lib/site-config";
 import {
   LandPlot,
   Car,
@@ -113,7 +114,13 @@ export default async function DevelopmentDetailPage({
                 Simular financiamento
               </Button>
             )}
-            <Button href="/fale-conosco" variant="ghost" size="lg">
+            <Button
+              href={getWhatsappUrl(
+                `Olá! Tenho interesse no ${dev.name} e quero falar com um consultor.`
+              )}
+              variant="ghost"
+              size="lg"
+            >
               Falar com um consultor
             </Button>
             {dev.tour3dUrl && (
@@ -358,7 +365,14 @@ export default async function DevelopmentDetailPage({
                     ? "Este empreendimento está 100% vendido, mas nosso time pode te apresentar as oportunidades disponíveis agora."
                     : "Fale com nosso time comercial e receba a tabela de preços e disponibilidade de unidades."}
                 </p>
-                <Button href="/fale-conosco" className="mt-5 w-full">
+                <Button
+                  href={getWhatsappUrl(
+                    dev.soldOut
+                      ? `Olá! Vi que o ${dev.name} está 100% vendido e quero conhecer os lançamentos disponíveis.`
+                      : `Olá! Quero saber mais sobre o ${dev.name} — tabela de preços e disponibilidade de unidades.`
+                  )}
+                  className="mt-5 w-full"
+                >
                   Falar com consultor
                 </Button>
               </div>

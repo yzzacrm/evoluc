@@ -4,6 +4,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { Lock, Loader2, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { getFaixa } from "@/lib/mcmv";
+import { getWhatsappUrl } from "@/lib/site-config";
 
 const INCOME_COMMITMENT = 0.3; // regra do Banco Central/Caixa: até 30% da renda bruta
 // Imóvel na planta: valor de venda fica abaixo da avaliação, por isso o
@@ -209,7 +210,15 @@ export default function FinancingSimulator() {
                 de crédito.
               </p>
 
-              <Button href="/fale-conosco" className="mt-6 w-full" size="lg">
+              <Button
+                href={getWhatsappUrl(
+                  `Olá! Simulei um financiamento na Evoluc (${result.faixa.label}, até ${currency(
+                    result.financing
+                  )} financiados) e quero falar com um consultor.`
+                )}
+                className="mt-6 w-full"
+                size="lg"
+              >
                 Falar com um consultor
               </Button>
             </div>

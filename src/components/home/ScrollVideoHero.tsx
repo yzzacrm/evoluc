@@ -219,22 +219,22 @@ export default function ScrollVideoHero() {
             opacity: introOpacity,
             pointerEvents: introOpacity > 0.05 ? "auto" : "none",
           }}
-          className="absolute inset-0 flex items-center"
+          className="absolute inset-0 flex items-end pb-20 sm:items-center sm:pb-0"
         >
           <Container>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-copper-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-copper-400 sm:text-sm">
               {siteConfig.name}
             </p>
-            <h1 className="font-display mt-4 max-w-2xl text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-3 max-w-2xl text-[1.75rem] font-extrabold leading-tight text-white sm:mt-4 sm:text-5xl lg:text-6xl">
               {siteConfig.slogan}
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-white/80">
+            <p className="mt-3 max-w-xl text-sm text-white/80 sm:mt-6 sm:text-lg">
               Aqui nascem lares abençoados e famílias felizes. Cada
               apartamento Evoluc é pensado para guardar as histórias da sua
               vida, com toda a estrutura de lazer e segurança que sua
               família merece.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-5 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
               <Button href="/lancamentos" size="lg">
                 Ver lançamentos
               </Button>
@@ -246,10 +246,13 @@ export default function ScrollVideoHero() {
         </div>
 
         {/* Take caption + progress dots */}
-        <div className="absolute inset-x-0 bottom-0 pb-10">
+        <div
+          style={{ opacity: 1 - introOpacity }}
+          className="absolute inset-x-0 bottom-0 pb-6 sm:pb-10"
+        >
           <Container>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <p className="font-display max-w-md text-xl font-semibold text-white sm:text-2xl">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
+              <p className="font-display max-w-md text-base font-semibold text-white sm:text-2xl">
                 {takes[activeIndex].caption}
               </p>
               <div className="flex items-center gap-2">

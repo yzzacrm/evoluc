@@ -14,6 +14,11 @@ export const siteConfig = {
   },
 };
 
+export function getWhatsappUrl(message: string) {
+  const digits = siteConfig.whatsapp.replace(/\D/g, "");
+  return `https://wa.me/55${digits}?text=${encodeURIComponent(message)}`;
+}
+
 export type NavItem = {
   label: string;
   href: string;
