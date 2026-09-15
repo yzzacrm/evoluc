@@ -9,6 +9,10 @@ type LeadPayload = {
   primeiroImovel?: string;
   empreendimento: string;
   origem: string;
+  cpf?: string;
+  rendaMensal?: string;
+  temFgts?: string;
+  saldoFgts?: string;
 };
 
 function isValidEmail(email: string) {
@@ -57,6 +61,10 @@ export async function POST(request: Request) {
 
   const observacao = [
     body.primeiroImovel ? `Primeiro imóvel: ${body.primeiroImovel}` : null,
+    body.cpf ? `CPF: ${body.cpf}` : null,
+    body.rendaMensal ? `Renda mensal: ${body.rendaMensal}` : null,
+    body.temFgts ? `Possui FGTS: ${body.temFgts}` : null,
+    body.saldoFgts ? `Saldo FGTS: ${body.saldoFgts}` : null,
     `Origem: ${body.origem || "Landing Page"}`,
     empreendimento ? `Empreendimento: ${empreendimento}` : null,
   ]
