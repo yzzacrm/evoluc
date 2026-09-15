@@ -8,7 +8,6 @@ import {
   ShoppingBag,
   GraduationCap,
   HeartPulse,
-  Key,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -98,74 +97,68 @@ export default function TerrasRarasLandingPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink-950">
-        <video
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-          src={dev.constructionVideo?.src}
-          poster={dev.constructionVideo?.poster}
-          autoPlay
-          muted
-          loop
-          playsInline
+        <Image
+          src={dev.gallery?.[2] ?? dev.heroImage}
+          alt={dev.name}
+          fill
+          priority
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/80 to-ink-950/50" />
-        <Container className="relative py-16 text-center lg:py-24">
-          <div className="mx-auto flex items-center justify-center gap-3">
-            <Image
-              src="/images/brand/logo.webp"
-              alt="Evoluc"
-              width={140}
-              height={37}
-              className="h-8 w-auto brightness-0 invert sm:h-9"
-            />
-            <span className="text-sm font-semibold text-white/40">+</span>
-            <span className="text-sm font-semibold uppercase tracking-widest text-white/60">
-              Caixa Econômica Federal
-            </span>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/75 to-ink-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-transparent to-transparent" />
+        <Container className="relative py-20 lg:py-28">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-center">
+            <div className="lg:col-span-3">
+              <span className="inline-block rounded-full bg-copper-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-copper-300">
+                Mega Feirão da Casa Própria · 3 e 4 de outubro
+              </span>
+              <h1 className="font-display mt-5 max-w-2xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+                Vila Carrão. Viva com lazer de clube a 8 minutos da estação
+                Penha.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg text-white/80">
+                Para você que sonha em trocar um apartamento comum por um
+                clube particular e ainda ganhar horas no seu dia. Descubra o
+                projeto com as melhores condições do Minha Casa, Minha Vida.
+              </p>
+              {dev.tour3dUrl && (
+                <Button href={dev.tour3dUrl} size="lg" className="mt-8">
+                  <HomeIcon size={18} />
+                  Fazer Tour Virtual 360°
+                </Button>
+              )}
+            </div>
 
-          <h1 className="font-display mx-auto mt-6 max-w-3xl text-4xl font-black leading-tight sm:text-6xl lg:text-7xl">
-            <span className="text-white">MEGA FEIRÃO</span>
-            <br />
-            <span className="text-copper-400">DA CASA PRÓPRIA</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-xl font-semibold text-white sm:text-2xl">
-            A maior oportunidade da história da Vila Carrão
-          </p>
-
-          <div className="mx-auto mt-8 inline-block rounded-2xl bg-white/10 px-6 py-5 backdrop-blur">
-            <p className="font-display text-5xl font-black text-copper-400 sm:text-6xl">
-              R$ 229.000
-            </p>
-            <p className="mt-1 text-sm text-white/70">
-              *Apartamentos a partir de R$ 229.000
-            </p>
-            <p className="mt-1 flex items-center justify-center gap-1.5 text-sm text-white/70">
-              <Key size={14} className="text-copper-400" />
-              Entrega prevista: 2028
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-              Faltam para o feirão — 3 e 4 de outubro
-            </p>
-            <div className="mt-3 flex justify-center">
-              <Countdown target={FEIRAO_DATE} />
+            <div className="lg:col-span-2">
+              <div className="rounded-2xl bg-white p-6 shadow-2xl sm:p-8">
+                <h2 className="font-display text-lg font-bold text-ink-900">
+                  Descubra o que cabe no seu bolso
+                </h2>
+                <p className="mt-1 text-sm text-ink-500">
+                  Preencha com seus dados e receba uma simulação gratuita e
+                  as condições especiais de entrada facilitada.
+                </p>
+                <div className="mt-5">
+                  <LeadForm
+                    empreendimento={dev.name}
+                    origem="LP Hero"
+                    ctaLabel="Quero minha simulação gratuita"
+                  />
+                </div>
+              </div>
             </div>
           </div>
+        </Container>
+      </section>
 
-          <div className="mt-10">
-            <Button href="#formulario" size="lg" className="px-10 py-5 text-base">
-              Descubra o seu poder de compra (grátis)
-            </Button>
-          </div>
-
-          {/* Cards de destaque */}
-          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 text-left sm:grid-cols-3">
+      {/* Cards de destaque */}
+      <section className="bg-white py-10">
+        <Container>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {destaques.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="flex items-center gap-4 rounded-xl bg-white p-6 shadow-lg"
+                className="flex items-center gap-4 rounded-xl border border-ink-100 p-6 shadow-sm"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-copper-50 text-copper-600">
                   <Icon size={24} />
@@ -353,7 +346,16 @@ export default function TerrasRarasLandingPage() {
         <Container>
           <div className="mx-auto max-w-xl">
             <div className="text-center">
-              <h2 className="font-display text-3xl font-black text-white sm:text-4xl">
+              <p className="font-display text-4xl font-black text-copper-400 sm:text-5xl">
+                R$ 229.000
+              </p>
+              <p className="mt-1 text-sm text-white/60">
+                *Apartamentos a partir de R$ 229.000 — entrega prevista: 2028
+              </p>
+              <div className="mt-5 flex justify-center">
+                <Countdown target={FEIRAO_DATE} />
+              </div>
+              <h2 className="font-display mt-8 text-3xl font-black text-white sm:text-4xl">
                 Descubra o seu poder de compra
               </h2>
               <p className="mt-3 text-ink-300">
