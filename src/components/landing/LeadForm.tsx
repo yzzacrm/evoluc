@@ -28,12 +28,14 @@ export default function LeadForm({
   variant = "light",
   ctaLabel = "Quero receber mais informações",
   extended = false,
+  compact = false,
 }: {
   empreendimento: string;
   origem: string;
   variant?: "light" | "dark";
   ctaLabel?: string;
   extended?: boolean;
+  compact?: boolean;
 }) {
   const idPrefix = useId();
   const [status, setStatus] = useState<Status>("idle");
@@ -96,10 +98,11 @@ export default function LeadForm({
     }
   }
 
+  const fieldPad = compact ? "px-3 py-2" : "px-4 py-3";
   const fieldCls =
     variant === "dark"
-      ? "w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-ink-400 focus:border-copper-500 focus:outline-none"
-      : "w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 focus:border-copper-500 focus:outline-none";
+      ? `w-full rounded-lg border border-white/15 bg-white/5 ${fieldPad} text-sm text-white placeholder:text-ink-400 focus:border-copper-500 focus:outline-none`
+      : `w-full rounded-lg border border-ink-200 bg-white ${fieldPad} text-sm text-ink-900 placeholder:text-ink-400 focus:border-copper-500 focus:outline-none`;
 
   const labelCls =
     variant === "dark"
@@ -107,7 +110,7 @@ export default function LeadForm({
       : "text-xs font-semibold text-ink-500";
 
   const toggleCls = (active: boolean) =>
-    `flex-1 rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors ${
+    `flex-1 rounded-lg border ${compact ? "px-3 py-2" : "px-4 py-2.5"} text-sm font-semibold transition-colors ${
       active
         ? "border-copper-500 bg-copper-500/10 text-copper-600"
         : variant === "dark"
@@ -129,8 +132,8 @@ export default function LeadForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
-      {extended && (
+    <form onSubmit={handleSubmit} className={compact ? "space-y-2" : "space-y-3"}>
+      {extended && !compact && (
         <div className="rounded-lg border-l-4 border-copper-500 bg-copper-50 p-4 text-sm text-ink-700">
           <p className="font-semibold text-ink-900">
             Para calcular seu poder de compra, precisamos de:
@@ -279,14 +282,22 @@ export default function LeadForm({
       )}
 
       {extended && (
-        <div className="flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 p-3 text-xs text-green-800">
+        <div
+          className={`flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 text-green-800 ${
+            compact ? "p-2 text-[11px]" : "p-3 text-xs"
+          }`}
+        >
           <Lock size={14} className="shrink-0" />
           Seus dados estão seguros e serão usados apenas para análise de
           crédito.
         </div>
       )}
 
-      <Button size="lg" className="w-full" disabled={status === "submitting"}>
+      <Button
+        size={compact ? "md" : "lg"}
+        className="w-full"
+        disabled={status === "submitting"}
+      >
         {status === "submitting" ? (
           <>
             <Loader2 className="animate-spin" size={18} />

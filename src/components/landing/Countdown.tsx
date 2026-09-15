@@ -28,14 +28,16 @@ export default function Countdown({ target }: { target: Date }) {
   const secondsLeft = useSecondsLeft(target);
 
   if (secondsLeft === NOT_MOUNTED) {
-    return <div className="h-[68px]" aria-hidden />;
+    return <div className="h-14 w-56" aria-hidden />;
   }
 
   if (secondsLeft === 0) {
     return (
-      <p className="text-lg font-bold text-copper-400">
-        O Mega Feirão da Casa Própria começou!
-      </p>
+      <div className="rounded-xl bg-copper-600 px-4 py-3 shadow-lg">
+        <p className="text-sm font-bold text-white">
+          O Mega Feirão da Casa Própria começou!
+        </p>
+      </div>
     );
   }
 
@@ -47,16 +49,13 @@ export default function Countdown({ target }: { target: Date }) {
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="inline-flex items-stretch divide-x divide-white/25 rounded-xl bg-copper-600 shadow-lg">
       {UNITS.map(({ key, label }) => (
-        <div
-          key={key}
-          className="flex w-16 flex-col items-center rounded-xl bg-white/10 py-3 backdrop-blur"
-        >
-          <span className="font-display text-2xl font-black text-white tabular-nums">
+        <div key={key} className="flex w-14 flex-col items-center py-2.5">
+          <span className="font-display text-xl font-black text-white tabular-nums">
             {String(timeLeft[key]).padStart(2, "0")}
           </span>
-          <span className="text-[10px] font-semibold uppercase tracking-wide text-white/60">
+          <span className="text-[9px] font-semibold uppercase tracking-wide text-white/80">
             {label}
           </span>
         </div>

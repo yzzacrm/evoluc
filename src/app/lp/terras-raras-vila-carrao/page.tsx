@@ -97,32 +97,34 @@ export default function TerrasRarasLandingPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink-950">
-        <Image
-          src={dev.gallery?.[2] ?? dev.heroImage}
-          alt={dev.name}
-          fill
-          priority
-          className="object-cover"
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/videos/lp-terras-raras-hero.mp4"
+          poster="/videos/lp-terras-raras-hero-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/75 to-ink-950/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-transparent to-transparent" />
-        <Container className="relative py-20 lg:py-28">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-5 md:items-center">
+        <Container className="relative py-16 lg:py-20">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:items-center">
             <div className="md:col-span-3">
               <span className="inline-block rounded-full bg-copper-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-copper-300">
                 Mega Feirão da Casa Própria · 3 e 4 de outubro
               </span>
-              <h1 className="font-display mt-5 max-w-2xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="font-display mt-4 max-w-xl text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
                 Vila Carrão. Viva com lazer de clube a 8 minutos da estação
                 Penha.
               </h1>
-              <p className="mt-6 max-w-xl text-lg text-white/80">
+              <p className="mt-4 max-w-lg text-base text-white/80">
                 Para você que sonha em trocar um apartamento comum por um
                 clube particular e ainda ganhar horas no seu dia. Descubra o
                 projeto com as melhores condições do Minha Casa, Minha Vida.
               </p>
               {dev.tour3dUrl && (
-                <Button href={dev.tour3dUrl} size="lg" className="mt-8">
+                <Button href={dev.tour3dUrl} size="lg" className="mt-6">
                   <HomeIcon size={18} />
                   Fazer Tour Virtual 360°
                 </Button>
@@ -130,25 +132,31 @@ export default function TerrasRarasLandingPage() {
             </div>
 
             <div className="md:col-span-2">
-              <div className="rounded-2xl bg-white p-6 shadow-2xl sm:p-8">
-                <h2 className="font-display text-lg font-bold text-ink-900">
+              <div className="rounded-2xl bg-white p-5 shadow-2xl">
+                <h2 className="font-display text-base font-bold text-ink-900">
                   Descubra o que cabe no seu bolso
                 </h2>
-                <p className="mt-1 text-sm text-ink-500">
-                  Preencha com seus dados e receba uma simulação gratuita e
-                  as condições especiais de entrada facilitada.
+                <p className="mt-1 text-xs text-ink-500">
+                  Preencha seus dados e receba uma análise gratuita e
+                  personalizada de financiamento.
                 </p>
-                <div className="mt-5">
+                <div className="mt-4">
                   <LeadForm
                     empreendimento={dev.name}
                     origem="LP Hero"
-                    ctaLabel="Quero minha simulação gratuita"
+                    ctaLabel="Quero fazer a minha análise"
+                    extended
+                    compact
                   />
                 </div>
               </div>
             </div>
           </div>
         </Container>
+
+        <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 lg:left-8">
+          <Countdown target={FEIRAO_DATE} />
+        </div>
       </section>
 
       {/* Cards de destaque */}
@@ -352,9 +360,6 @@ export default function TerrasRarasLandingPage() {
               <p className="mt-1 text-sm text-white/60">
                 *Apartamentos a partir de R$ 229.000 — entrega prevista: 2028
               </p>
-              <div className="mt-5 flex justify-center">
-                <Countdown target={FEIRAO_DATE} />
-              </div>
               <h2 className="font-display mt-8 text-3xl font-black text-white sm:text-4xl">
                 Descubra o seu poder de compra
               </h2>
@@ -367,7 +372,7 @@ export default function TerrasRarasLandingPage() {
               <LeadForm
                 empreendimento={`${dev.name} — Mega Feirão da Casa Própria`}
                 origem="LP Mega Feirão"
-                ctaLabel="Descubra o seu poder de compra (grátis)"
+                ctaLabel="Quero fazer a minha análise"
                 extended
               />
             </div>
