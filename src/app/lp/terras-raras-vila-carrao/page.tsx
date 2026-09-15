@@ -107,8 +107,8 @@ export default function TerrasRarasLandingPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/75 to-ink-950/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-transparent to-transparent" />
         <Container className="relative py-20 lg:py-28">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-center">
-            <div className="lg:col-span-3">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-5 md:items-center">
+            <div className="md:col-span-3">
               <span className="inline-block rounded-full bg-copper-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-copper-300">
                 Mega Feirão da Casa Própria · 3 e 4 de outubro
               </span>
@@ -129,7 +129,7 @@ export default function TerrasRarasLandingPage() {
               )}
             </div>
 
-            <div className="lg:col-span-2">
+            <div className="md:col-span-2">
               <div className="rounded-2xl bg-white p-6 shadow-2xl sm:p-8">
                 <h2 className="font-display text-lg font-bold text-ink-900">
                   Descubra o que cabe no seu bolso
