@@ -91,7 +91,9 @@ export default function ScrollVideoHero() {
     const video = videoRefs.current[idx];
     const duration = video?.duration;
     if (video && duration && Number.isFinite(duration)) {
-      const target = localProgress * duration;
+      // Evita mirar exatamente no fim do clipe — em alguns navegadores,
+      // currentTime === duration falha ao renderizar o último frame.
+      const target = Math.min(localProgress * duration, duration - 0.05);
       if (Math.abs(video.currentTime - target) > 0.03) {
         video.currentTime = target;
       }
@@ -142,7 +144,7 @@ export default function ScrollVideoHero() {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${100 + takes.length * 55}vh` }}
+      style={{ height: `${100 + takes.length * 140}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-ink-950">
         {takes.map((take, i) => (

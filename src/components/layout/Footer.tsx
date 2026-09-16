@@ -8,7 +8,7 @@ import {
   LinkedinIcon,
   YoutubeIcon,
 } from "@/components/ui/SocialIcons";
-import { mainNav, utilityNav, portalNav, siteConfig } from "@/lib/site-config";
+import { mainNav, utilityNav, siteConfig } from "@/lib/site-config";
 
 const socialLinks = [
   { icon: InstagramIcon, href: siteConfig.social.instagram, label: "Instagram" },
@@ -74,7 +74,7 @@ export default function Footer() {
               Acesso rápido
             </h3>
             <ul className="mt-4 space-y-3">
-              {[...utilityNav, portalNav].map((item) => (
+              {utilityNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

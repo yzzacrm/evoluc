@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Evoluc",
   slogan: "Há 12 anos fazendo parte do futuro de gerações.",
   founded: 2012,
-  phone: "(11) 2776-8553",
+  phone: "(11) 91403-0822",
   whatsapp: "(11) 91403-0822",
   email: "contato@evolucengenharia.com.br",
   address: "Avenida Maria Luiza Americano, 1708 — CEP 08275-000, São Paulo/SP",

@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Phone, User } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import clsx from "clsx";
 import Container from "@/components/ui/Container";
-import { mainNav, utilityNav, portalNav, siteConfig } from "@/lib/site-config";
+import { mainNav, utilityNav, siteConfig } from "@/lib/site-config";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -84,18 +84,6 @@ export default function Header() {
               <Phone size={16} />
               {siteConfig.phone}
             </a>
-            <Link
-              href={portalNav.href}
-              className={clsx(
-                "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-                solid
-                  ? "bg-ink-900 text-white hover:bg-ink-800"
-                  : "bg-white/15 text-white border border-white/40 hover:bg-white/25 backdrop-blur"
-              )}
-            >
-              <User size={16} />
-              Área do Morador
-            </Link>
           </div>
 
           <button
@@ -131,13 +119,6 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href={portalNav.href}
-                className="mt-3 flex items-center justify-center gap-2 rounded-full bg-copper-600 px-4 py-3 text-base font-semibold text-white"
-              >
-                <User size={18} />
-                {portalNav.label}
-              </Link>
               <a
                 href={`tel:+55${siteConfig.phone.replace(/\D/g, "")}`}
                 className="mt-2 flex items-center justify-center gap-2 rounded-full border border-ink-200 px-4 py-3 text-base font-semibold text-ink-800"

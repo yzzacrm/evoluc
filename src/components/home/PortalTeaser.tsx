@@ -53,10 +53,7 @@ export default function PortalTeaser() {
               WhatsApp ou e-mails espalhados.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/area-do-morador" size="lg">
-                Acessar Área do Morador
-              </Button>
-              <Button href="/fale-conosco" variant="ghost" size="lg">
+              <Button href="/fale-conosco" size="lg">
                 Quero ser cliente Evoluc
               </Button>
             </div>
