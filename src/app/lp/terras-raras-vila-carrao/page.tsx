@@ -106,9 +106,7 @@ export default function TerrasRarasLandingPage() {
           loop
           playsInline
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/75 to-ink-950/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-transparent to-transparent" />
-        <Container className="relative py-16 lg:py-20">
+        <Container className="relative pb-16 pt-28 lg:pb-20 lg:pt-32">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:items-center">
             <div className="md:col-span-3">
               <span className="inline-block rounded-full bg-copper-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-copper-300">
@@ -123,15 +121,20 @@ export default function TerrasRarasLandingPage() {
                 clube particular e ainda ganhar horas no seu dia. Descubra o
                 projeto com as melhores condições do Minha Casa, Minha Vida.
               </p>
-              {dev.tour3dUrl && (
-                <Button href={dev.tour3dUrl} size="lg" className="mt-6">
-                  <HomeIcon size={18} />
-                  Fazer Tour Virtual 360°
+              <div className="mt-6 flex flex-wrap gap-3">
+                {dev.tour3dUrl && (
+                  <Button href={dev.tour3dUrl} size="lg">
+                    <HomeIcon size={18} />
+                    Fazer Tour Virtual 360°
+                  </Button>
+                )}
+                <Button href="#formulario" size="lg" className="md:hidden">
+                  Quero fazer a minha análise
                 </Button>
-              )}
+              </div>
             </div>
 
-            <div className="md:col-span-2">
+            <div className="hidden md:col-span-2 md:block">
               <div className="rounded-2xl bg-white p-5 shadow-2xl">
                 <h2 className="font-display text-base font-bold text-ink-900">
                   Descubra o que cabe no seu bolso
