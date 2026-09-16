@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, LandPlot, Car, Home, BadgeCheck } from "lucide-react";
+import { ArrowUpRight, LandPlot, Car, Home, BadgeCheck, Sparkles } from "lucide-react";
 import { Development } from "@/lib/data";
 
 const statusLabel: Record<Development["status"], string> = {
@@ -40,6 +40,12 @@ export default function DevelopmentCard({
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/10" />
+        {dev.promoBadge && (
+          <span className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-copper-600 px-3 py-1.5 text-xs font-black uppercase tracking-wide text-white shadow-lg rotate-3">
+            <Sparkles size={12} />
+            {dev.promoBadge}
+          </span>
+        )}
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           {featured && (
             <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-copper-700">
