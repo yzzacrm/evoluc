@@ -44,22 +44,34 @@ function subscribeToMobileQuery(callback: () => void) {
   return () => mql.removeEventListener("change", callback);
 }
 
-function useIsMobile() {
+type Viewport = "unknown" | "mobile" | "desktop";
+
+function useViewport(): Viewport {
   return useSyncExternalStore(
     subscribeToMobileQuery,
-    () => window.matchMedia(MOBILE_QUERY).matches,
-    () => false
+    () => (window.matchMedia(MOBILE_QUERY).matches ? "mobile" : "desktop"),
+    () => "unknown"
   );
 }
 
 export default function ScrollVideoHero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const isMobile = useIsMobile();
-  const takes = isMobile ? mobileTakes : desktopTakes;
-  const SEGMENT = 1 / takes.length;
+  const viewport = useViewport();
+  // Só decidimos quais vídeos montar depois de saber o viewport real no
+  // cliente — nunca chegamos a montar o vídeo "errado" (desktop num
+  // celular ou vice-versa) e depois trocar, o que interrompia o
+  // aquecimento do vídeo no iOS/Android e deixava a tela preta no
+  // primeiro scroll.
+  const takes =
+    viewport === "unknown"
+      ? null
+      : viewport === "mobile"
+        ? mobileTakes
+        : desktopTakes;
+  const SEGMENT = takes ? 1 / takes.length : 1;
   const [failed, setFailed] = useState<boolean[]>(() =>
-    takes.map(() => false)
+    (takes ?? []).map(() => false)
   );
   const [activeIndex, setActiveIndex] = useState(0);
   const [introOpacity, setIntroOpacity] = useState(1);
@@ -68,7 +80,7 @@ export default function ScrollVideoHero() {
   const [syncedTakes, setSyncedTakes] = useState(takes);
   if (syncedTakes !== takes) {
     setSyncedTakes(takes);
-    setFailed(takes.map(() => false));
+    setFailed((takes ?? []).map(() => false));
     setActiveIndex(0);
   }
 
@@ -78,6 +90,7 @@ export default function ScrollVideoHero() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (!takes) return;
     const idx = Math.min(
       takes.length - 1,
       Math.floor(progress / SEGMENT + 0.0001)
@@ -105,17 +118,24 @@ export default function ScrollVideoHero() {
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
 
-      // iOS Safari só decodifica/pinta frames de um <video> depois que ele
-      // já tocou pelo menos uma vez — sem isso, currentTime "raspa" o vídeo
-      // silenciosamente sem desenhar nada na tela. Como está mudo, o
-      // navegador permite esse play() automático; pausamos em seguida para
-      // manter o controle do scroll.
+      // Vídeos móveis (iOS e boa parte do Android) só decodificam/pintam
+      // frames depois de terem tocado de verdade por um instante — só dar
+      // play() e pause() no mesmo tick não é suficiente, o decoder às
+      // vezes descarta o frame antes de desenhar, deixando a tela preta
+      // quando o scroll tenta "raspar" (currentTime) o vídeo depois. Por
+      // isso deixamos tocar ~120ms mudo antes de pausar.
+      let primed = false;
       const primeForIOS = () => {
+        if (primed) return;
+        primed = true;
         const playPromise = video.play();
         if (playPromise) {
           playPromise
-            .then(() => video.pause())
+            .then(() => {
+              setTimeout(() => video.pause(), 120);
+            })
             .catch(() => {
+              primed = false;
               /* autoplay bloqueado — o scrub ainda funciona nos demais navegadores */
             });
         }
@@ -131,9 +151,11 @@ export default function ScrollVideoHero() {
       };
 
       video.addEventListener("loadedmetadata", primeForIOS, { once: true });
+      video.addEventListener("canplay", primeForIOS, { once: true });
       video.addEventListener("error", onError);
       cleanups.push(() => {
         video.removeEventListener("loadedmetadata", primeForIOS);
+        video.removeEventListener("canplay", primeForIOS);
         video.removeEventListener("error", onError);
       });
     });
@@ -144,10 +166,10 @@ export default function ScrollVideoHero() {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${100 + takes.length * 140}dvh` }}
+      style={{ height: `${100 + (takes?.length ?? 1) * 140}dvh` }}
     >
       <div className="sticky top-0 h-dvh w-full overflow-hidden bg-ink-950">
-        {takes.map((take, i) => (
+        {takes?.map((take, i) => (
           <div
             key={take.src}
             className="absolute inset-0 transition-opacity duration-500 ease-out"
@@ -225,9 +247,9 @@ export default function ScrollVideoHero() {
           <Container>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
               <p className="font-display max-w-md text-base font-semibold text-white sm:text-2xl">
-                {takes[activeIndex].caption}
+                {takes?.[activeIndex]?.caption}
               </p>
-              {takes.length > 1 && (
+              {takes && takes.length > 1 && (
                 <div className="flex items-center gap-2">
                   {takes.map((t, i) => (
                     <span
