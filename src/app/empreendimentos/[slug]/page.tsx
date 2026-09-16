@@ -247,6 +247,25 @@ export default async function DevelopmentDetailPage({
                 </div>
               )}
 
+              {dev.advancedConstructionVideo && (
+                <div className="mt-12">
+                  <h3 className="font-display text-lg font-bold text-ink-900">
+                    Obras Avançadas
+                  </h3>
+                  <div className="mt-4 overflow-hidden rounded-xl bg-ink-950">
+                    <video
+                      className="aspect-video w-full"
+                      src={dev.advancedConstructionVideo.src}
+                      poster={dev.advancedConstructionVideo.poster}
+                      aria-label={`Obras avançadas — ${dev.name}`}
+                      controls
+                      playsInline
+                      preload="metadata"
+                    />
+                  </div>
+                </div>
+              )}
+
               {dev.gallery && dev.gallery.length > 0 && (
                 <div className="mt-12">
                   <h3 className="font-display text-lg font-bold text-ink-900">

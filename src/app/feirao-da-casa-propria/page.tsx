@@ -206,6 +206,29 @@ export default function TerrasRarasLandingPage() {
         </section>
       )}
 
+      {/* Obras avançadas */}
+      {dev.advancedConstructionVideo && (
+        <section className="bg-ink-50 py-16 lg:py-24">
+          <Container>
+            <h2 className="font-display text-center text-3xl font-black text-ink-900 sm:text-5xl">
+              Obras Avançadas
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-center text-ink-500">
+              Acompanhe a evolução da construção do Terras Raras Vila Carrão.
+            </p>
+            <div className="mx-auto mt-8 aspect-video max-w-4xl overflow-hidden rounded-2xl shadow-2xl">
+              <video
+                className="h-full w-full object-cover"
+                src={dev.advancedConstructionVideo.src}
+                poster={dev.advancedConstructionVideo.poster}
+                controls
+                playsInline
+              />
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* Galeria */}
       {dev.gallery && dev.gallery.length > 0 && (
         <section className="bg-ink-950 py-16 lg:py-24">

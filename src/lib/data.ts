@@ -30,6 +30,7 @@ export type Development = {
   tour3dUrl?: string;
   soldOut?: boolean;
   constructionVideo?: { src: string; poster?: string };
+  advancedConstructionVideo?: { src: string; poster?: string };
   story?: { title: string; paragraphs: string[] };
   promoBadge?: string;
 };
@@ -93,6 +94,10 @@ export const developments: Development[] = [
     constructionVideo: {
       src: "/videos/obras/terras-raras-obra.mp4",
       poster: "/videos/obras/terras-raras-obra-poster.jpg",
+    },
+    advancedConstructionVideo: {
+      src: "/videos/obras/terras-raras-obras-avancadas.mp4",
+      poster: "/videos/obras/terras-raras-obras-avancadas-poster.jpg",
     },
   },
 ];
