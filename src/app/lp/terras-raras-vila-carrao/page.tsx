@@ -106,33 +106,33 @@ export default function TerrasRarasLandingPage() {
           loop
           playsInline
         />
-        <Container className="relative pb-16 pt-40 sm:pt-44 lg:pb-20 lg:pt-52">
+        <Container className="relative pb-12 pt-48 sm:pt-52 lg:pb-16 lg:pt-64">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:items-center">
             <div className="md:col-span-3">
               <h1 className="font-display text-4xl font-black uppercase leading-tight tracking-wide text-copper-600 sm:text-5xl lg:text-6xl">
                 Feirão da Casa Própria
               </h1>
-              <p className="font-display mt-2 text-2xl font-black text-white sm:text-3xl">
+              <p className="font-display mt-1 text-2xl font-black text-white sm:text-3xl">
                 A partir de R$ 255.000
               </p>
-              <p className="mt-1 text-base text-white/80 sm:text-lg">
+              <p className="mt-0.5 text-base text-white/80 sm:text-lg">
                 Apartamentos com varanda na Vila Carrão
               </p>
 
-              <div className="mt-5 flex flex-wrap items-center gap-4">
+              <div className="mt-3 flex flex-wrap items-center gap-4">
                 <Countdown target={FEIRAO_DATE} />
                 <Button href="#formulario" size="lg" className="md:hidden">
                   Quero fazer a minha análise
                 </Button>
               </div>
 
-              <p className="mt-6 max-w-lg text-sm text-white/70">
+              <p className="mt-3 max-w-lg text-sm font-medium text-white">
                 Para você que sonha em trocar um apartamento comum por um
                 clube particular e ainda ganhar horas no seu dia. Descubra o
                 projeto com as melhores condições do Minha Casa, Minha Vida.
               </p>
               {dev.tour3dUrl && (
-                <Button href={dev.tour3dUrl} size="lg" className="mt-4">
+                <Button href={dev.tour3dUrl} size="lg" className="mt-3">
                   <HomeIcon size={18} />
                   Fazer Tour Virtual 360°
                 </Button>
