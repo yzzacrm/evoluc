@@ -118,27 +118,16 @@ export default function ScrollVideoHero() {
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
 
-      // Vídeos móveis (iOS e boa parte do Android) só decodificam/pintam
-      // frames depois de terem tocado de verdade por um instante — só dar
-      // play() e pause() no mesmo tick não é suficiente, o decoder às
-      // vezes descarta o frame antes de desenhar, deixando a tela preta
-      // quando o scroll tenta "raspar" (currentTime) o vídeo depois. Por
-      // isso deixamos tocar ~120ms mudo antes de pausar.
-      let primed = false;
-      const primeForIOS = () => {
-        if (primed) return;
-        primed = true;
-        const playPromise = video.play();
-        if (playPromise) {
-          playPromise
-            .then(() => {
-              setTimeout(() => video.pause(), 120);
-            })
-            .catch(() => {
-              primed = false;
-              /* autoplay bloqueado — o scrub ainda funciona nos demais navegadores */
-            });
-        }
+      // Um play() disparado por script (fora de um gesto do usuário) pode
+      // ser silenciosamente bloqueado em vários navegadores móveis, mesmo
+      // mudo — diferente do atributo autoPlay, que segue a política mais
+      // permissiva do navegador para vídeo mudo. Por isso o <video> usa
+      // autoPlay nativo, e aqui só esperamos o evento "playing" (frames
+      // realmente decodificando) para pausar e devolver o controle ao
+      // scroll. Sem isso, currentTime "rasga" um vídeo que nunca chegou a
+      // decodificar nenhum frame e a tela fica preta/azulada.
+      const onPlaying = () => {
+        video.pause();
       };
 
       const onError = () => {
@@ -150,12 +139,13 @@ export default function ScrollVideoHero() {
         });
       };
 
-      video.addEventListener("loadedmetadata", primeForIOS, { once: true });
-      video.addEventListener("canplay", primeForIOS, { once: true });
+      if (!video.paused) {
+        video.pause();
+      }
+      video.addEventListener("playing", onPlaying, { once: true });
       video.addEventListener("error", onError);
       cleanups.push(() => {
-        video.removeEventListener("loadedmetadata", primeForIOS);
-        video.removeEventListener("canplay", primeForIOS);
+        video.removeEventListener("playing", onPlaying);
         video.removeEventListener("error", onError);
       });
     });
@@ -184,6 +174,7 @@ export default function ScrollVideoHero() {
                 className="h-full w-full object-cover"
                 src={take.src}
                 poster={take.poster}
+                autoPlay
                 muted
                 playsInline
                 webkit-playsinline="true"
