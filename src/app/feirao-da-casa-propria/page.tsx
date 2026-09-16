@@ -105,6 +105,7 @@ export default function TerrasRarasLandingPage() {
           muted
           loop
           playsInline
+          preload="auto"
         />
         <Container className="relative pb-12 pt-48 sm:pt-52 lg:pb-16 lg:pt-64">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:items-center">
