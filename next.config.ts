@@ -19,6 +19,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/lp/terras-raras-vila-carrao",
+        destination: "/feirao-da-casa-propria",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: "Mega Feirão da Casa Própria | Terras Raras Vila Carrão | Evoluc",
   description:
     "Dias 3 e 4 de outubro: apartamentos a partir de R$255.000 na Vila Carrão, dentro do Minha Casa, Minha Vida. Descubra seu poder de compra grátis.",
-  alternates: { canonical: "/lp/terras-raras-vila-carrao" },
+  alternates: { canonical: "/feirao-da-casa-propria" },
   robots: { index: false, follow: true },
 };
 

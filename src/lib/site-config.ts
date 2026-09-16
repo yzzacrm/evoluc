@@ -26,6 +26,7 @@ export type NavItem = {
 
 export const mainNav: NavItem[] = [
   { label: "Início", href: "/" },
+  { label: "Feirão da Casa Própria", href: "/feirao-da-casa-propria" },
   { label: "Quem Somos", href: "/quem-somos" },
   { label: "Diferenciais", href: "/diferenciais" },
   { label: "Lançamentos", href: "/lancamentos" },
