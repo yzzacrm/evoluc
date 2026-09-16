@@ -18,20 +18,8 @@ const desktopTakes: Take[] = [
   {
     src: "/videos/take-1.mp4",
     poster: "/videos/take-1-poster.jpg",
-    label: "Take 1 — Cozinha planejada",
+    label: "Apartamento decorado Evoluc",
     caption: "Bem-vindo ao apartamento decorado Evoluc.",
-  },
-  {
-    src: "/videos/take-2.mp4",
-    poster: "/videos/take-2-poster.jpg",
-    label: "Take 2 — Quarto e acabamentos",
-    caption: "Cada detalhe pensado para o seu dia a dia.",
-  },
-  {
-    src: "/videos/take-3.mp4",
-    poster: "/videos/take-3-poster.jpg",
-    label: "Take 3 — Área de lazer do condomínio",
-    caption: "Seu novo endereço, do jeito que você imaginou.",
   },
 ];
 
@@ -39,26 +27,8 @@ const mobileTakes: Take[] = [
   {
     src: "/videos/mobile/take-1.mp4",
     poster: "/videos/mobile/take-1-poster.jpg",
-    label: "Take 1 — Cozinha planejada",
+    label: "Apartamento decorado Evoluc",
     caption: "Bem-vindo ao apartamento decorado Evoluc.",
-  },
-  {
-    src: "/videos/mobile/take-2.mp4",
-    poster: "/videos/mobile/take-2-poster.jpg",
-    label: "Take 2 — Quarto e acabamentos",
-    caption: "Cada detalhe pensado para o seu dia a dia.",
-  },
-  {
-    src: "/videos/mobile/take-3.mp4",
-    poster: "/videos/mobile/take-3-poster.jpg",
-    label: "Take 3 — Sala de estar",
-    caption: "Espaços que reúnem a família.",
-  },
-  {
-    src: "/videos/mobile/take-4.mp4",
-    poster: "/videos/mobile/take-4-poster.jpg",
-    label: "Take 4 — Sala e varanda",
-    caption: "Seu novo endereço, do jeito que você imaginou.",
   },
 ];
 
@@ -255,18 +225,20 @@ export default function ScrollVideoHero() {
               <p className="font-display max-w-md text-base font-semibold text-white sm:text-2xl">
                 {takes[activeIndex].caption}
               </p>
-              <div className="flex items-center gap-2">
-                {takes.map((t, i) => (
-                  <span
-                    key={t.src}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === activeIndex
-                        ? "w-10 bg-copper-500"
-                        : "w-5 bg-white/30"
-                    }`}
-                  />
-                ))}
-              </div>
+              {takes.length > 1 && (
+                <div className="flex items-center gap-2">
+                  {takes.map((t, i) => (
+                    <span
+                      key={t.src}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        i === activeIndex
+                          ? "w-10 bg-copper-500"
+                          : "w-5 bg-white/30"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </Container>
         </div>
