@@ -106,10 +106,10 @@ export default function TerrasRarasLandingPage() {
           loop
           playsInline
         />
-        <Container className="relative pb-16 pt-28 lg:pb-20 lg:pt-32">
+        <Container className="relative pb-16 pt-40 sm:pt-44 lg:pb-20 lg:pt-52">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:items-center">
             <div className="md:col-span-3">
-              <h1 className="font-display text-2xl font-black uppercase tracking-wide text-copper-400 sm:text-3xl">
+              <h1 className="font-display text-4xl font-black uppercase leading-tight tracking-wide text-copper-600 sm:text-5xl lg:text-6xl">
                 Feirão da Casa Própria
               </h1>
               <p className="font-display mt-2 text-2xl font-black text-white sm:text-3xl">
