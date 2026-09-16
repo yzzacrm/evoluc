@@ -116,7 +116,7 @@ export default function TerrasRarasLandingPage() {
               <p className="font-display mt-1 text-2xl font-black text-white sm:text-3xl">
                 A partir de R$ 255.000
               </p>
-              <p className="mt-6 text-base text-white/80 sm:mt-0.5 sm:text-lg">
+              <p className="mt-6 text-base font-medium text-white sm:mt-0.5 sm:text-lg">
                 Apartamentos com varanda na Vila Carrão
               </p>
 

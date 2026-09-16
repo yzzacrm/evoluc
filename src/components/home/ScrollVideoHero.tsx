@@ -200,7 +200,7 @@ export default function ScrollVideoHero() {
             <h1 className="font-display mt-3 max-w-2xl text-[1.75rem] font-extrabold leading-tight text-white sm:mt-4 sm:text-5xl lg:text-6xl">
               {siteConfig.slogan}
             </h1>
-            <p className="mt-3 max-w-xl text-sm text-white/80 sm:mt-6 sm:text-lg">
+            <p className="mt-3 max-w-xl text-sm font-medium text-white sm:mt-6 sm:text-lg">
               Aqui nascem lares abençoados e famílias felizes. Cada
               apartamento Evoluc é pensado para guardar as histórias da sua
               vida, com toda a estrutura de lazer e segurança que sua
