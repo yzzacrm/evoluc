@@ -115,11 +115,11 @@ export default function TerrasRarasLandingPage() {
               <p className="font-display mt-1 text-2xl font-black text-white sm:text-3xl">
                 A partir de R$ 255.000
               </p>
-              <p className="mt-0.5 text-base text-white/80 sm:text-lg">
+              <p className="mt-6 text-base text-white/80 sm:mt-0.5 sm:text-lg">
                 Apartamentos com varanda na Vila Carrão
               </p>
 
-              <div className="mt-3 flex flex-wrap items-center gap-4">
+              <div className="mt-6 flex flex-wrap items-center gap-4 sm:mt-3">
                 <Countdown target={FEIRAO_DATE} />
                 <Button href="#formulario" size="lg" className="md:hidden">
                   Quero fazer a minha análise
