@@ -25,7 +25,7 @@ const FEIRAO_DATE = new Date("2026-10-03T00:00:00-03:00");
 export const metadata: Metadata = {
   title: "Mega Feirão da Casa Própria | Terras Raras Vila Carrão | Evoluc",
   description:
-    "Dias 3 e 4 de outubro: apartamentos a partir de R$229.000 na Vila Carrão, dentro do Minha Casa, Minha Vida. Descubra seu poder de compra grátis.",
+    "Dias 3 e 4 de outubro: apartamentos a partir de R$255.000 na Vila Carrão, dentro do Minha Casa, Minha Vida. Descubra seu poder de compra grátis.",
   alternates: { canonical: "/lp/terras-raras-vila-carrao" },
   robots: { index: false, follow: true },
 };
@@ -39,7 +39,7 @@ const destaques = [
   {
     icon: HomeIcon,
     title: "Apartamentos de 1, 2 e 3 Dormitórios",
-    description: "A partir de R$ 229.000",
+    description: "A partir de R$ 255.000",
   },
   {
     icon: TrendingUp,
@@ -109,29 +109,34 @@ export default function TerrasRarasLandingPage() {
         <Container className="relative pb-16 pt-28 lg:pb-20 lg:pt-32">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:items-center">
             <div className="md:col-span-3">
-              <span className="inline-block rounded-full bg-copper-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-copper-300">
-                Mega Feirão da Casa Própria · 3 e 4 de outubro
-              </span>
-              <h1 className="font-display mt-4 max-w-xl text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-                Vila Carrão. Viva com lazer de clube a 8 minutos da estação
-                Penha.
+              <h1 className="font-display text-2xl font-black uppercase tracking-wide text-copper-400 sm:text-3xl">
+                Feirão da Casa Própria
               </h1>
-              <p className="mt-4 max-w-lg text-base text-white/80">
-                Para você que sonha em trocar um apartamento comum por um
-                clube particular e ainda ganhar horas no seu dia. Descubra o
-                projeto com as melhores condições do Minha Casa, Minha Vida.
+              <p className="font-display mt-2 text-2xl font-black text-white sm:text-3xl">
+                A partir de R$ 255.000
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {dev.tour3dUrl && (
-                  <Button href={dev.tour3dUrl} size="lg">
-                    <HomeIcon size={18} />
-                    Fazer Tour Virtual 360°
-                  </Button>
-                )}
+              <p className="mt-1 text-base text-white/80 sm:text-lg">
+                Apartamentos com varanda na Vila Carrão
+              </p>
+
+              <div className="mt-5 flex flex-wrap items-center gap-4">
+                <Countdown target={FEIRAO_DATE} />
                 <Button href="#formulario" size="lg" className="md:hidden">
                   Quero fazer a minha análise
                 </Button>
               </div>
+
+              <p className="mt-6 max-w-lg text-sm text-white/70">
+                Para você que sonha em trocar um apartamento comum por um
+                clube particular e ainda ganhar horas no seu dia. Descubra o
+                projeto com as melhores condições do Minha Casa, Minha Vida.
+              </p>
+              {dev.tour3dUrl && (
+                <Button href={dev.tour3dUrl} size="lg" className="mt-4">
+                  <HomeIcon size={18} />
+                  Fazer Tour Virtual 360°
+                </Button>
+              )}
             </div>
 
             <div className="hidden md:col-span-2 md:block">
@@ -156,10 +161,6 @@ export default function TerrasRarasLandingPage() {
             </div>
           </div>
         </Container>
-
-        <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 lg:left-8">
-          <Countdown target={FEIRAO_DATE} />
-        </div>
       </section>
 
       {/* Cards de destaque */}
@@ -358,10 +359,10 @@ export default function TerrasRarasLandingPage() {
           <div className="mx-auto max-w-xl">
             <div className="text-center">
               <p className="font-display text-4xl font-black text-copper-400 sm:text-5xl">
-                R$ 229.000
+                R$ 255.000
               </p>
               <p className="mt-1 text-sm text-white/60">
-                *Apartamentos a partir de R$ 229.000 — entrega prevista: 2028
+                *Apartamentos a partir de R$ 255.000 — entrega prevista: 2028
               </p>
               <h2 className="font-display mt-8 text-3xl font-black text-white sm:text-4xl">
                 Descubra o seu poder de compra
