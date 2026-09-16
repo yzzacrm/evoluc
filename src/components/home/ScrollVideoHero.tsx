@@ -144,9 +144,9 @@ export default function ScrollVideoHero() {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${100 + takes.length * 140}vh` }}
+      style={{ height: `${100 + takes.length * 140}dvh` }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-ink-950">
+      <div className="sticky top-0 h-dvh w-full overflow-hidden bg-ink-950">
         {takes.map((take, i) => (
           <div
             key={take.src}
