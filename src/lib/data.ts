@@ -31,6 +31,7 @@ export type Development = {
   soldOut?: boolean;
   constructionVideo?: { src: string; poster?: string };
   advancedConstructionVideo?: { src: string; poster?: string };
+  heroVideo?: { src: string; poster?: string };
   story?: { title: string; paragraphs: string[] };
   promoBadge?: string;
 };
@@ -41,6 +42,10 @@ export const developments: Development[] = [
     name: "Terras Raras Vila Carrão",
     status: "em-obras",
     promoBadge: "Feirão",
+    heroVideo: {
+      src: "/videos/lp-terras-raras-hero.mp4",
+      poster: "/videos/lp-terras-raras-hero-poster.jpg",
+    },
     neighborhood: "Vila Carrão",
     city: "São Paulo/SP",
     address: "Rua Doutor Jaci Barbosa, 228 — Vila Carrão, São Paulo/SP",

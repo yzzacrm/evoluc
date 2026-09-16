@@ -83,8 +83,23 @@ export default async function DevelopmentDetailPage({
   return (
     <>
       <JsonLd data={developmentJsonLd} />
-      <div className="bg-ink-950 pb-16 pt-36 sm:pt-40">
-        <Container>
+      <div className="relative overflow-hidden bg-ink-950 pb-16 pt-36 sm:pt-40">
+        {dev.heroVideo && (
+          <>
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src={dev.heroVideo.src}
+              poster={dev.heroVideo.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/85 to-ink-950/40" />
+          </>
+        )}
+        <Container className="relative">
           <div className="flex flex-wrap items-center gap-3">
             <span className="inline-block rounded-full bg-copper-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
               {statusLabel[dev.status]}
@@ -225,20 +240,14 @@ export default async function DevelopmentDetailPage({
               {dev.constructionVideo && (
                 <div className="mt-12">
                   <h3 className="font-display text-lg font-bold text-ink-900">
-                    {dev.status === "entregue"
-                      ? "Vídeo do empreendimento"
-                      : "Vídeo da obra"}
+                    Conheça o projeto
                   </h3>
                   <div className="mt-4 overflow-hidden rounded-xl bg-ink-950">
                     <video
                       className="aspect-video w-full"
                       src={dev.constructionVideo.src}
                       poster={dev.constructionVideo.poster}
-                      aria-label={
-                        dev.status === "entregue"
-                          ? `Vídeo do empreendimento — ${dev.name}`
-                          : `Vídeo da obra — ${dev.name}`
-                      }
+                      aria-label={`Conheça o projeto — ${dev.name}`}
                       controls
                       playsInline
                       preload="metadata"
