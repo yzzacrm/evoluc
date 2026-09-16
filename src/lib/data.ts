@@ -92,12 +92,12 @@ export const developments: Development[] = [
     // PLACEHOLDER: sem percentuais reais de andamento ainda — envie os
     // números atuais de cada etapa para exibirmos "Acompanhe a obra" aqui.
     constructionVideo: {
-      src: "/videos/obras/terras-raras-obra.mp4",
-      poster: "/videos/obras/terras-raras-obra-poster.jpg",
-    },
-    advancedConstructionVideo: {
       src: "/videos/obras/terras-raras-obras-avancadas.mp4",
       poster: "/videos/obras/terras-raras-obras-avancadas-poster.jpg",
+    },
+    advancedConstructionVideo: {
+      src: "/videos/obras/terras-raras-obra.mp4",
+      poster: "/videos/obras/terras-raras-obra-poster.jpg",
     },
   },
 ];
