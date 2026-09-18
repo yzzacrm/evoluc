@@ -20,12 +20,12 @@ import { getWhatsappUrl } from "@/lib/site-config";
 const dev = developments.find((d) => d.slug === "terras-raras-vila-carrao")!;
 
 // Próxima edição do evento presencial de vendas.
-const FEIRAO_DATE = new Date("2026-10-03T00:00:00-03:00");
+const FEIRAO_DATE = new Date("2026-10-10T00:00:00-03:00");
 
 export const metadata: Metadata = {
   title: "Mega Feirão da Casa Própria | Terras Raras Vila Carrão | Evoluc",
   description:
-    "Dias 3 e 4 de outubro: apartamentos a partir de R$255.000 na Vila Carrão, dentro do Minha Casa, Minha Vida. Descubra seu poder de compra grátis.",
+    "Dias 10 e 11 de outubro: apartamentos a partir de R$255.000 na Vila Carrão, dentro do Minha Casa, Minha Vida. Descubra seu poder de compra grátis.",
   alternates: { canonical: "/feirao-da-casa-propria" },
   robots: { index: false, follow: true },
 };
