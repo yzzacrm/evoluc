@@ -43,7 +43,7 @@ export default function LeadsLogin({
       className="flex min-h-full flex-col items-center justify-center px-6 py-12"
       style={{
         background:
-          "radial-gradient(ellipse at 50% 0%, #1f5a3a 0%, #0c2c1d 45%, #04140d 100%)",
+          "radial-gradient(ellipse at 50% 0%, #0d3222 0%, #051a10 40%, #010604 100%)",
       }}
     >
       <Image
@@ -52,7 +52,7 @@ export default function LeadsLogin({
         width={1000}
         height={404}
         priority
-        className="h-auto w-44 sm:w-52"
+        className="h-auto w-32 sm:w-36"
       />
 
       <div className="mt-6 flex flex-col items-center">
@@ -62,7 +62,7 @@ export default function LeadsLogin({
           alt="Evoluc Construtora"
           width={271}
           height={72}
-          className="h-7 w-auto opacity-90 brightness-0 invert"
+          className="h-12 w-auto brightness-0 invert sm:h-14"
         />
       </div>
 

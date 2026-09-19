@@ -602,7 +602,7 @@ export default function LeadsDashboard() {
         className="mt-10 flex flex-col items-center gap-3 px-4 py-8"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 0%, #1f5a3a 0%, #0c2c1d 55%, #04140d 100%)",
+            "radial-gradient(ellipse at 50% 0%, #0d3222 0%, #051a10 55%, #010604 100%)",
         }}
       >
         <span className="text-[11px] uppercase tracking-[0.3em] text-white/60">
