@@ -52,17 +52,17 @@ export default function LeadsLogin({
         width={1000}
         height={404}
         priority
-        className="h-auto w-full max-w-md"
+        className="h-auto w-44 sm:w-52"
       />
 
-      <div className="mt-8 flex flex-col items-center">
+      <div className="mt-6 flex flex-col items-center">
         <span className="mb-3 h-px w-16 bg-gradient-to-r from-transparent via-[#d4a63a] to-transparent" />
         <Image
           src="/images/brand/logo.webp"
           alt="Evoluc Construtora"
           width={271}
           height={72}
-          className="h-9 w-auto brightness-0 invert"
+          className="h-7 w-auto opacity-90 brightness-0 invert"
         />
       </div>
 

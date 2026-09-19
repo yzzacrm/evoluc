@@ -613,7 +613,7 @@ export default function LeadsDashboard() {
           alt="DOM Partner Growth"
           width={1000}
           height={404}
-          className="h-auto w-40"
+          className="h-auto w-24"
         />
       </footer>
     </div>

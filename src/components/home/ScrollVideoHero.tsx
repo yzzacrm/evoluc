@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site-config";
@@ -159,6 +160,28 @@ export default function ScrollVideoHero() {
       style={{ height: `${100 + (takes?.length ?? 1) * 140}dvh` }}
     >
       <div className="sticky top-0 h-dvh w-full overflow-hidden bg-ink-950">
+        {/* Poster estático renderizado já no HTML: a hero aparece na hora,
+            antes do JavaScript e do vídeo carregarem. */}
+        <Image
+          src={desktopTakes[0].poster!}
+          alt=""
+          fill
+          priority
+          quality={70}
+          sizes="100vw"
+          className="hidden object-cover sm:block"
+        />
+        <Image
+          src={mobileTakes[0].poster!}
+          alt=""
+          fill
+          priority
+          quality={70}
+          sizes="100vw"
+          className="object-cover sm:hidden"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/40" />
+
         {takes?.map((take, i) => (
           <div
             key={take.src}
@@ -194,7 +217,6 @@ export default function ScrollVideoHero() {
                 </div>
               </div>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/40" />
           </div>
         ))}
 
