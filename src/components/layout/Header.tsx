@@ -37,7 +37,7 @@ export default function Header() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         solid
           ? "bg-white/95 backdrop-blur shadow-sm border-b border-ink-100"
-          : "bg-gradient-to-b from-black/50 to-transparent"
+          : "bg-white/60 backdrop-blur-md"
       )}
     >
       <Container>
@@ -49,10 +49,7 @@ export default function Header() {
               width={271}
               height={72}
               priority
-              className={clsx(
-                "h-9 w-auto transition-[filter] duration-300",
-                !solid && "brightness-0 invert"
-              )}
+              className="h-9 w-auto"
             />
           </Link>
 
@@ -65,7 +62,7 @@ export default function Header() {
                   "text-sm font-medium transition-colors",
                   solid
                     ? "text-ink-700 hover:text-copper-600"
-                    : "text-white/90 hover:text-white"
+                    : "text-ink-950 hover:text-copper-600"
                 )}
               >
                 {item.label}
@@ -78,7 +75,7 @@ export default function Header() {
               href={`tel:+55${siteConfig.phone.replace(/\D/g, "")}`}
               className={clsx(
                 "flex items-center gap-2 text-sm font-semibold",
-                solid ? "text-ink-700" : "text-white"
+                solid ? "text-ink-700" : "text-ink-950"
               )}
             >
               <Phone size={16} />
@@ -92,7 +89,7 @@ export default function Header() {
             aria-expanded={open}
             className={clsx(
               "lg:hidden inline-flex items-center justify-center rounded-full p-2",
-              solid ? "text-ink-900" : "text-white"
+              "text-ink-950"
             )}
           >
             {open ? <X size={26} /> : <Menu size={26} />}

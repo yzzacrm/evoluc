@@ -5,7 +5,7 @@ export const siteConfig = {
   phone: "(11) 91403-0822",
   whatsapp: "(11) 91403-0822",
   email: "contato@evolucengenharia.com.br",
-  address: "Avenida Maria Luiza Americano, 1708 — CEP 08275-000, São Paulo/SP",
+  address: "Av. Itaquera, 657 — Vila Carmosina, São Paulo/SP",
   social: {
     instagram: "https://instagram.com/evolucengenharia",
     facebook: "https://facebook.com/evolucengenharia",
