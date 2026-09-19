@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Image from "next/image";
-import { Loader2, Lock } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock } from "lucide-react";
 
 export default function LeadsLogin({
   configured,
@@ -13,6 +13,7 @@ export default function LeadsLogin({
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -96,16 +97,27 @@ export default function LeadsLogin({
                 className="w-full rounded-lg border border-ink-200 px-4 py-3 text-sm text-ink-900 focus:border-[#1f5a3a] focus:outline-none"
               />
             )}
-            <input
-              type="password"
-              required
-              autoFocus={!askUsername}
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Senha de acesso"
-              className="w-full rounded-lg border border-ink-200 px-4 py-3 text-sm text-ink-900 focus:border-[#1f5a3a] focus:outline-none"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                required
+                autoFocus={!askUsername}
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Senha de acesso"
+                className="w-full rounded-lg border border-ink-200 py-3 pl-4 pr-12 text-sm text-ink-900 focus:border-[#1f5a3a] focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+                aria-pressed={showPassword}
+                className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-ink-500 hover:text-[#1f5a3a]"
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
             {error && <p className="text-sm text-red-600">{error}</p>}
             <button
               disabled={loading}
