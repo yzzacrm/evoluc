@@ -4,7 +4,14 @@ import { FormEvent, useState } from "react";
 import Image from "next/image";
 import { Loader2, Lock } from "lucide-react";
 
-export default function LeadsLogin({ configured }: { configured: boolean }) {
+export default function LeadsLogin({
+  configured,
+  askUsername,
+}: {
+  configured: boolean;
+  askUsername: boolean;
+}) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -17,7 +24,7 @@ export default function LeadsLogin({ configured }: { configured: boolean }) {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ username, password }),
       });
       if (res.ok) {
         window.location.reload();
@@ -58,10 +65,21 @@ export default function LeadsLogin({ configured }: { configured: boolean }) {
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="mt-6 space-y-3">
+            {askUsername && (
+              <input
+                required
+                autoFocus
+                autoComplete="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Usuário"
+                className="w-full rounded-lg border border-ink-200 px-4 py-3 text-sm text-ink-900 focus:border-copper-500 focus:outline-none"
+              />
+            )}
             <input
               type="password"
               required
-              autoFocus
+              autoFocus={!askUsername}
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { isAdminAuthenticated, isAdminConfigured } from "@/lib/admin-auth";
+import {
+  isAdminAuthenticated,
+  isAdminConfigured,
+  isUsernameRequired,
+} from "@/lib/admin-auth";
 import LeadsLogin from "@/components/admin/LeadsLogin";
 import LeadsDashboard from "@/components/admin/LeadsDashboard";
 
@@ -19,7 +23,10 @@ export default async function CentralDeLeadsPage() {
       {authenticated ? (
         <LeadsDashboard />
       ) : (
-        <LeadsLogin configured={configured} />
+        <LeadsLogin
+          configured={configured}
+          askUsername={isUsernameRequired()}
+        />
       )}
     </div>
   );

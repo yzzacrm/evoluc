@@ -4,6 +4,7 @@ import {
   createSessionToken,
   isAdminConfigured,
   passwordMatches,
+  usernameMatches,
   sessionCookieOptions,
 } from "@/lib/admin-auth";
 
@@ -16,9 +17,14 @@ export async function POST(request: Request) {
   }
 
   let password = "";
+  let username = "";
   try {
-    const body = (await request.json()) as { password?: string };
+    const body = (await request.json()) as {
+      password?: string;
+      username?: string;
+    };
     password = body.password ?? "";
+    username = body.username ?? "";
   } catch {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
@@ -26,9 +32,11 @@ export async function POST(request: Request) {
   // Atraso fixo dificulta tentativas em massa de adivinhar a senha.
   await new Promise((r) => setTimeout(r, 700));
 
-  if (!passwordMatches(password)) {
+  const userOk = usernameMatches(username);
+  const passOk = passwordMatches(password);
+  if (!userOk || !passOk) {
     return NextResponse.json(
-      { ok: false, message: "Senha incorreta." },
+      { ok: false, message: "Usuário ou senha incorretos." },
       { status: 401 }
     );
   }

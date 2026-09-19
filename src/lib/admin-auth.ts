@@ -22,6 +22,18 @@ export function passwordMatches(input: string) {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
+export function usernameMatches(input: string) {
+  const expected = (process.env.ADMIN_USER ?? "").trim().toLowerCase();
+  if (!expected) return true;
+  const a = Buffer.from(input.trim().toLowerCase());
+  const b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
+export function isUsernameRequired() {
+  return (process.env.ADMIN_USER ?? "").trim().length > 0;
+}
+
 export function createSessionToken() {
   const expires = Date.now() + MAX_AGE_SECONDS * 1000;
   const payload = `admin.${expires}`;
