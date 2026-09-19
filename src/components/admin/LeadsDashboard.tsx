@@ -375,7 +375,7 @@ export default function LeadsDashboard() {
   }
 
   return (
-    <div className="min-h-full">
+    <div className="flex min-h-full flex-col">
       <header className="sticky top-0 z-10 border-b border-ink-100 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <div className="flex items-center gap-3">
@@ -413,7 +413,7 @@ export default function LeadsDashboard() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6">
         {state.status === "loading" && (
           <p className="py-20 text-center text-sm text-ink-500">Carregando leads...</p>
         )}
@@ -598,6 +598,24 @@ export default function LeadsDashboard() {
           </>
         )}
       </main>
+      <footer
+        className="mt-10 flex flex-col items-center gap-3 px-4 py-8"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, #1f5a3a 0%, #0c2c1d 55%, #04140d 100%)",
+        }}
+      >
+        <span className="text-[11px] uppercase tracking-[0.3em] text-white/60">
+          Desenvolvido por
+        </span>
+        <Image
+          src="/images/brand/dom-logo.webp"
+          alt="DOM Partner Growth"
+          width={1000}
+          height={404}
+          className="h-auto w-40"
+        />
+      </footer>
     </div>
   );
 }

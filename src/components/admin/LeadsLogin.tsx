@@ -39,16 +39,35 @@ export default function LeadsLogin({
   }
 
   return (
-    <div className="flex min-h-full items-center justify-center bg-ink-950 px-6 py-16">
-      <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl">
+    <div
+      className="flex min-h-full flex-col items-center justify-center px-6 py-12"
+      style={{
+        background:
+          "radial-gradient(ellipse at 50% 0%, #1f5a3a 0%, #0c2c1d 45%, #04140d 100%)",
+      }}
+    >
+      <Image
+        src="/images/brand/dom-logo.webp"
+        alt="DOM Partner Growth"
+        width={1000}
+        height={404}
+        priority
+        className="h-auto w-full max-w-md"
+      />
+
+      <div className="mt-8 flex flex-col items-center">
+        <span className="mb-3 h-px w-16 bg-gradient-to-r from-transparent via-[#d4a63a] to-transparent" />
         <Image
           src="/images/brand/logo.webp"
-          alt="Evoluc"
+          alt="Evoluc Construtora"
           width={271}
           height={72}
-          className="h-9 w-auto"
+          className="h-9 w-auto brightness-0 invert"
         />
-        <div className="mt-6 flex items-center gap-2 text-copper-600">
+      </div>
+
+      <div className="mt-8 w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl ring-1 ring-[#d4a63a]/30">
+        <div className="flex items-center gap-2 text-[#1f5a3a]">
           <Lock size={18} />
           <h1 className="font-display text-lg font-bold text-ink-900">
             Central de Leads
@@ -73,7 +92,7 @@ export default function LeadsLogin({
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Usuário"
-                className="w-full rounded-lg border border-ink-200 px-4 py-3 text-sm text-ink-900 focus:border-copper-500 focus:outline-none"
+                className="w-full rounded-lg border border-ink-200 px-4 py-3 text-sm text-ink-900 focus:border-[#1f5a3a] focus:outline-none"
               />
             )}
             <input
@@ -84,12 +103,12 @@ export default function LeadsLogin({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Senha de acesso"
-              className="w-full rounded-lg border border-ink-200 px-4 py-3 text-sm text-ink-900 focus:border-copper-500 focus:outline-none"
+              className="w-full rounded-lg border border-ink-200 px-4 py-3 text-sm text-ink-900 focus:border-[#1f5a3a] focus:outline-none"
             />
             {error && <p className="text-sm text-red-600">{error}</p>}
             <button
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-copper-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-copper-700 disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1f5a3a] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#174a2f] disabled:opacity-60"
             >
               {loading ? (
                 <>
@@ -103,6 +122,10 @@ export default function LeadsLogin({
           </form>
         )}
       </div>
+
+      <p className="mt-8 text-xs tracking-wide text-white/50">
+        Desenvolvido por DOM Partner Growth
+      </p>
     </div>
   );
 }
