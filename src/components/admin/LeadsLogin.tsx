@@ -40,23 +40,24 @@ export default function LeadsLogin({
 
   return (
     <div
-      className="flex min-h-full flex-col items-center justify-center px-6 py-12"
+      className="relative flex min-h-full flex-col items-center justify-center px-6 pb-12 pt-28"
       style={{
         background:
           "radial-gradient(ellipse at 50% 0%, #0d3222 0%, #051a10 40%, #010604 100%)",
       }}
     >
-      <Image
-        src="/images/brand/dom-logo.webp"
-        alt="DOM Partner Growth"
-        width={1000}
-        height={404}
-        priority
-        className="h-auto w-32 sm:w-36"
-      />
+      <div className="absolute inset-x-0 top-0 flex justify-center pt-8">
+        <Image
+          src="/images/brand/dom-logo.webp"
+          alt="DOM Partner Growth"
+          width={1000}
+          height={404}
+          priority
+          className="h-auto w-28 sm:w-32"
+        />
+      </div>
 
-      <div className="mt-6 flex flex-col items-center">
-        <span className="mb-3 h-px w-16 bg-gradient-to-r from-transparent via-[#d4a63a] to-transparent" />
+      <div className="flex flex-col items-center">
         <Image
           src="/images/brand/logo.webp"
           alt="Evoluc Construtora"
