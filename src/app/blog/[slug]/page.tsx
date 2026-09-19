@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { blogPosts } from "@/lib/data";
@@ -68,6 +69,15 @@ export default async function BlogPostPage({
       <article className="py-16">
         <Container>
           <div className="mx-auto max-w-2xl space-y-6">
+            <div className="relative -mt-2 mb-8 aspect-video overflow-hidden rounded-2xl">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 672px, 100vw"
+              />
+            </div>
             {post.content.map((paragraph, i) => (
               <p key={i} className="text-base leading-relaxed text-ink-600">
                 {paragraph}

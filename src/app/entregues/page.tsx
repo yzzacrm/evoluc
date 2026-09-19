@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import Container from "@/components/ui/Container";
 import DevelopmentCard from "@/components/developments/DevelopmentCard";
-import Testimonials from "@/components/home/Testimonials";
 import { deliveredExamples } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function EntreguesPage() {
         </Container>
       </section>
 
-      <Testimonials />
     </>
   );
 }

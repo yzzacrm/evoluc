@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { submitLead } from "@/lib/submit-lead";
 
 const inputClasses =
   "w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 focus:border-copper-500 focus:outline-none focus:ring-2 focus:ring-copper-500/20";
@@ -10,10 +11,34 @@ const inputClasses =
 export default function ConsultantForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
     setStatus("loading");
-    setTimeout(() => setStatus("sent"), 900);
+    setError(null);
+    const result = await submitLead({
+      nome: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      telefone: String(data.get("phone") ?? ""),
+      origem: "Seja um consultor",
+      mensagem: [
+        data.get("creci") ? `CRECI: ${data.get("creci")}` : null,
+        data.get("experience") ? `Experiência: ${data.get("experience")}` : null,
+        data.get("message"),
+      ]
+        .filter(Boolean)
+        .join(" | "),
+    });
+    if (result.success) {
+      setStatus("sent");
+    } else {
+      setStatus("idle");
+      setError(
+        result.message ?? "Não foi possível enviar. Tente pelo WhatsApp."
+      );
+    }
   }
 
   if (status === "sent") {
@@ -76,6 +101,7 @@ export default function ConsultantForm() {
         rows={4}
         className={inputClasses}
       />
+      {error && <p className="text-sm text-red-600">{error}</p>}
       <Button size="lg" className="mt-2" disabled={status === "loading"}>
         {status === "loading" ? (
           <>

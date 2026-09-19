@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Calendar, Clock } from "lucide-react";
 import { BlogPost } from "@/lib/data";
 
@@ -16,8 +17,15 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       href={`/blog/${post.slug}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white transition-all hover:-translate-y-1 hover:shadow-lg"
     >
-      <div className="flex h-40 items-center justify-center bg-gradient-to-br from-copper-100 to-copper-200">
-        <span className="text-xs font-semibold uppercase tracking-wider text-copper-700">
+      <div className="relative h-44 overflow-hidden bg-ink-900">
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          sizes="(min-width: 768px) 33vw, 100vw"
+        />
+        <span className="absolute left-4 top-4 rounded-full bg-copper-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
           {post.category}
         </span>
       </div>

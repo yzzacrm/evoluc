@@ -5,6 +5,7 @@ import { Lock, Loader2, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { getFaixa } from "@/lib/mcmv";
 import { getWhatsappUrl } from "@/lib/site-config";
+import { submitLead } from "@/lib/submit-lead";
 
 const INCOME_COMMITMENT = 0.3; // regra do Banco Central/Caixa: até 30% da renda bruta
 // Imóvel na planta: valor de venda fica abaixo da avaliação, por isso o
@@ -77,14 +78,23 @@ export default function FinancingSimulator() {
     };
   }, [income, propertyValue, useFgts, fgtsAmount, years]);
 
-  function handleRegister(e: FormEvent<HTMLFormElement>) {
+  async function handleRegister(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
     setSubmitting(true);
-    // TODO (Fase 2): enviar lead para CRM/e-mail via API real.
-    setTimeout(() => {
-      setSubmitting(false);
-      setStage("unlocked");
-    }, 800);
+    await submitLead({
+      nome: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      telefone: String(data.get("phone") ?? ""),
+      origem: "Simulador de financiamento",
+      rendaMensal: currency(income),
+      temFgts: useFgts ? "Sim" : "Não",
+      saldoFgts: useFgts ? currency(fgtsAmount) : undefined,
+      mensagem: `Simulou imóvel de ${currency(propertyValue)} em ${years} anos`,
+    });
+    // O resultado é liberado mesmo se o envio falhar, para não travar o usuário.
+    setSubmitting(false);
+    setStage("unlocked");
   }
 
   return (

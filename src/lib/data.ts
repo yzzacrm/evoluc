@@ -292,6 +292,7 @@ export type BlogPost = {
   date: string;
   readTime: string;
   category: string;
+  image: string;
 };
 
 export const blogPosts: BlogPost[] = [
@@ -309,6 +310,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-06-26",
     readTime: "4 min",
     category: "Financiamento",
+    image: "/images/developments/terras-raras-vila-carrao/gallery-01-fachada-diurna.jpg",
   },
   {
     slug: "como-escolher-metragem-ideal-apartamento",
@@ -323,6 +325,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-07-14",
     readTime: "5 min",
     category: "Guia do Comprador",
+    image: "/images/developments/oberon-itaquera/gallery-13-cozinha.jpg",
   },
   {
     slug: "o-que-observar-durante-acompanhamento-de-obra",
@@ -337,6 +340,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-08-02",
     readTime: "4 min",
     category: "Obra",
+    image: "/images/developments/oberon-itaquera/gallery-07-obra.jpeg",
   },
 ];
 
