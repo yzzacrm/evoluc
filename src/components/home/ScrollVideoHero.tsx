@@ -180,7 +180,7 @@ export default function ScrollVideoHero() {
           sizes="100vw"
           className="object-cover sm:hidden"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/75 via-white/35 to-white/10 sm:bg-gradient-to-r sm:from-white/65 sm:via-white/25 sm:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10 sm:bg-gradient-to-r sm:from-black/55 sm:via-black/25 sm:to-transparent" />
 
         {takes?.map((take, i) => (
           <div
@@ -229,13 +229,13 @@ export default function ScrollVideoHero() {
           className="absolute inset-0 flex items-end pb-20 sm:items-center sm:pb-0"
         >
           <Container>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-copper-600 sm:text-sm">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-copper-400 [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-sm">
               {siteConfig.name}
             </p>
-            <h1 className="font-display mt-3 max-w-2xl text-[1.75rem] font-extrabold leading-tight text-ink-950 sm:mt-4 sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-3 max-w-2xl text-[1.75rem] font-extrabold leading-tight text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.6),0_4px_24px_rgba(0,0,0,0.5)] sm:mt-4 sm:text-5xl lg:text-6xl">
               {siteConfig.slogan}
             </h1>
-            <p className="mt-3 max-w-xl text-sm font-semibold text-ink-900 sm:mt-6 sm:text-lg">
+            <p className="mt-3 max-w-xl text-sm font-semibold text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.8),0_2px_14px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-lg">
               Aqui nascem lares abençoados e famílias felizes. Cada
               apartamento Evoluc é pensado para guardar as histórias da sua
               vida, com toda a estrutura de lazer e segurança que sua
@@ -259,7 +259,7 @@ export default function ScrollVideoHero() {
         >
           <Container>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
-              <p className="font-display max-w-md text-base font-semibold text-ink-950 sm:text-2xl">
+              <p className="font-display max-w-md text-base font-semibold text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-2xl">
                 {takes?.[activeIndex]?.caption}
               </p>
               {takes && takes.length > 1 && (
@@ -282,7 +282,7 @@ export default function ScrollVideoHero() {
 
         <div
           style={{ opacity: scrollCueOpacity }}
-          className="pointer-events-none absolute inset-x-0 bottom-24 hidden flex-col items-center text-ink-900/80 sm:flex"
+          className="pointer-events-none absolute inset-x-0 bottom-24 hidden flex-col items-center text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.8)] sm:flex"
         >
           <span className="text-xs font-medium uppercase tracking-[0.3em]">
             Role para ver o decorado
