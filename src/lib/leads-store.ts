@@ -1,6 +1,6 @@
-// Armazenamento de leads em Redis (Upstash) via API REST — sem dependências.
-// Aceita as variáveis criadas pelo Vercel Marketplace (KV_REST_API_*) ou
-// pelo Upstash direto (UPSTASH_REDIS_REST_*).
+// Armazenamento de leads em Redis. Aceita a API REST do Upstash
+// (KV_REST_API_* / UPSTASH_REDIS_REST_*) ou uma conexão Redis comum (REDIS_URL).
+import { createClient } from "redis";
 
 export type Lead = {
   id: string;
@@ -27,12 +27,36 @@ function config() {
 }
 
 export function isStoreConfigured() {
-  return config() !== null;
+  return config() !== null || Boolean(process.env.REDIS_URL);
+}
+
+type TcpClient = { sendCommand: (args: string[]) => Promise<unknown> };
+let tcpClient: Promise<TcpClient> | null = null;
+
+function getTcpClient(): Promise<TcpClient> {
+  if (!tcpClient) {
+    const client = createClient({ url: process.env.REDIS_URL });
+    client.on("error", () => {});
+    tcpClient = client
+      .connect()
+      .then(() => client as unknown as TcpClient)
+      .catch((err) => {
+        tcpClient = null;
+        throw err;
+      });
+  }
+  return tcpClient;
 }
 
 async function redis(command: unknown[]) {
   const cfg = config();
-  if (!cfg) throw new Error("Banco de leads não configurado");
+  if (!cfg) {
+    if (!process.env.REDIS_URL) {
+      throw new Error("Banco de leads não configurado");
+    }
+    const client = await getTcpClient();
+    return client.sendCommand(command.map(String));
+  }
   const res = await fetch(cfg.url, {
     method: "POST",
     headers: {
