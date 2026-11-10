@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import { siteConfig } from "@/lib/site-config";
 
 export default function AboutPreview() {
@@ -9,7 +10,10 @@ export default function AboutPreview() {
     <section className="py-20 sm:py-28">
       <Container>
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative aspect-video overflow-hidden rounded-2xl bg-ink-900">
+          <Reveal
+            variant="left"
+            className="relative aspect-video overflow-hidden rounded-2xl bg-ink-900"
+          >
             <Image
               src="/videos/obras/oberon-obra-poster.jpg"
               alt="Vista aérea do Oberon Itaquera, empreendimento entregue pela Evoluc"
@@ -17,9 +21,9 @@ export default function AboutPreview() {
               className="object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={0.1}>
             <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
               Quem somos
             </p>
@@ -39,12 +43,12 @@ export default function AboutPreview() {
             </p>
             <Link
               href="/quem-somos"
-              className="mt-8 inline-flex items-center gap-1 border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 hover:border-ink-950"
+              className="mt-8 inline-flex items-center gap-1 border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 transition-colors hover:border-ink-950"
             >
               Conhecer a nossa história
               <ArrowRight size={16} />
             </Link>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

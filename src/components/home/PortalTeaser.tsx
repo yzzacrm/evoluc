@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import {
   MessageSquare,
   BellRing,
@@ -39,7 +40,7 @@ export default function PortalTeaser() {
     <section className="bg-ink-950 py-20 sm:py-28">
       <Container>
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <div>
+          <Reveal variant="left">
             <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-300">
               Área do Morador
             </p>
@@ -57,13 +58,16 @@ export default function PortalTeaser() {
                 Falar com a Evoluc
               </Button>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <RevealGroup
+            variant="scale"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+          >
             {features.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-white/20 hover:bg-white/[0.07]"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white/70">
                   <Icon size={18} />
@@ -76,7 +80,7 @@ export default function PortalTeaser() {
                 </p>
               </div>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </Container>
     </section>

@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import { RevealGroup } from "@/components/ui/Reveal";
 import { siteConfig } from "@/lib/site-config";
 
 const items = [
@@ -20,7 +21,10 @@ export default function TrustBar() {
   return (
     <div className="relative z-10 -mt-16 pb-4">
       <Container>
-        <div className="grid grid-cols-1 divide-y divide-ink-100 rounded-2xl border border-ink-100 bg-white shadow-xl shadow-ink-950/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        <RevealGroup
+          variant="scale"
+          className="grid grid-cols-1 divide-y divide-ink-100 rounded-2xl border border-ink-100 bg-white shadow-xl shadow-ink-950/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+        >
           {items.map(({ title, subtitle }) => (
             <div key={title} className="px-6 py-6 sm:px-8 sm:py-8">
               <p className="font-serif-display text-xl text-ink-950 sm:text-2xl">
@@ -29,7 +33,7 @@ export default function TrustBar() {
               <p className="mt-1.5 text-xs tracking-wide text-ink-500">{subtitle}</p>
             </div>
           ))}
-        </div>
+        </RevealGroup>
       </Container>
     </div>
   );

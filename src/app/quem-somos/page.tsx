@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import PortalTeaser from "@/components/home/PortalTeaser";
 import { siteConfig } from "@/lib/site-config";
 import {
@@ -92,7 +93,7 @@ export default function QuemSomosPage() {
       <section className="py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
+            <Reveal variant="left">
               <p className="text-base leading-relaxed text-ink-600">
                 Desde 2012, a Evoluc cresce pela competência e pela dedicação
                 das suas equipes, com um compromisso que não mudou: entregar
@@ -114,12 +115,16 @@ export default function QuemSomosPage() {
                   o Programa Brasileiro de Qualidade e Produtividade do Habitat.
                 </p>
               </div>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-ink-100 to-ink-200">
+            </Reveal>
+            <Reveal
+              variant="scale"
+              delay={0.1}
+              className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-ink-100 to-ink-200"
+            >
               <div className="absolute inset-0 flex items-center justify-center text-ink-400">
                 <span className="text-sm">Foto da equipe / obra Evoluc</span>
               </div>
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>
@@ -131,7 +136,7 @@ export default function QuemSomosPage() {
             title="Quatro momentos que definiram a Evoluc"
             description="Histórias reais por trás das decisões que tomamos e das obras que entregamos."
           />
-          <div className="mt-14 space-y-14">
+          <RevealGroup variant="up" stagger={0.12} className="mt-14 space-y-14">
             {founderStories.map((story) => (
               <div
                 key={story.title}
@@ -155,13 +160,13 @@ export default function QuemSomosPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <RevealGroup variant="scale" className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <div className="rounded-2xl border border-ink-100 p-8">
               <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
                 Propósito
@@ -188,7 +193,7 @@ export default function QuemSomosPage() {
                 estão.
               </p>
             </div>
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 
@@ -200,11 +205,11 @@ export default function QuemSomosPage() {
             description="Quatro princípios que valem para todos na Evoluc, em qualquer obra."
             light
           />
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <RevealGroup variant="scale" className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
             {values.map(({ icon: Icon, title, text }) => (
               <div
                 key={title}
-                className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6"
+                className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-white/20 hover:bg-white/[0.07]"
               >
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/15 text-white/70">
                   <Icon size={20} />
@@ -219,7 +224,7 @@ export default function QuemSomosPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 

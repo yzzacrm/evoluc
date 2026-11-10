@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import DevelopmentCard from "@/components/developments/DevelopmentCard";
 import { developments, deliveredExamples, Development } from "@/lib/data";
 
@@ -20,7 +21,7 @@ export default function DevelopmentsPreview() {
   return (
     <section className="bg-ink-50 py-20 sm:py-28">
       <Container>
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <Reveal variant="left" className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="Empreendimentos"
             title="Endereços pensados para viver bem"
@@ -28,14 +29,17 @@ export default function DevelopmentsPreview() {
           />
           <Link
             href="/lancamentos"
-            className="inline-flex shrink-0 items-center gap-1 border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 hover:border-ink-950"
+            className="inline-flex shrink-0 items-center gap-1 border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 transition-colors hover:border-ink-950"
           >
             Ver todos
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
 
-        <div className="scrollbar-hide -mx-6 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4">
+        <RevealGroup
+          variant="scale"
+          className="scrollbar-hide -mx-6 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4"
+        >
           {featured.map((dev, i) => (
             <div
               key={dev.slug}
@@ -48,21 +52,26 @@ export default function DevelopmentsPreview() {
               <DevelopmentCard dev={dev} featured={i === 0} />
             </div>
           ))}
-        </div>
+        </RevealGroup>
 
         {videos.length > 0 && (
           <div className="mt-16 border-t border-ink-200 pt-16">
-            <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
-              Em obra
-            </p>
-            <h3 className="font-serif-display mt-3 text-2xl text-ink-950 sm:text-3xl">
-              Acompanhe cada canteiro
-            </h3>
-            <p className="mt-2 max-w-xl text-ink-500">
-              Imagens reais das nossas obras e dos prédios já entregues.
-            </p>
+            <Reveal variant="left">
+              <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
+                Em obra
+              </p>
+              <h3 className="font-serif-display mt-3 text-2xl text-ink-950 sm:text-3xl">
+                Acompanhe cada canteiro
+              </h3>
+              <p className="mt-2 max-w-xl text-ink-500">
+                Imagens reais das nossas obras e dos prédios já entregues.
+              </p>
+            </Reveal>
 
-            <div className="scrollbar-hide -mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4">
+            <RevealGroup
+              variant="scale"
+              className="scrollbar-hide -mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4"
+            >
               {videos.map((dev) => (
                 <div
                   key={dev.slug}
@@ -91,7 +100,7 @@ export default function DevelopmentsPreview() {
                   </p>
                 </div>
               ))}
-            </div>
+            </RevealGroup>
           </div>
         )}
       </Container>

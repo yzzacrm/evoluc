@@ -1,12 +1,16 @@
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 import { siteConfig } from "@/lib/site-config";
 
 export default function FinalCta() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <div className="overflow-hidden rounded-3xl bg-ink-950 px-8 py-16 text-center sm:px-16 sm:py-20">
+        <Reveal
+          variant="scale"
+          className="overflow-hidden rounded-3xl bg-ink-950 px-8 py-16 text-center sm:px-16 sm:py-20"
+        >
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-300">
             Financiamento
           </p>
@@ -28,7 +32,7 @@ export default function FinalCta() {
               ou ligue {siteConfig.phone}
             </a>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );
