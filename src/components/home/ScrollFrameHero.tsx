@@ -14,14 +14,22 @@ import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site-config";
 
-// Hero com sequência de imagens (90 quadros extraídos do vídeo do decorado)
-// desenhada num <canvas> e "esfregada" pelo scroll — técnica do pacote
-// "Scroll Imobiliario". Diferente do <video>, não depende do navegador
-// decodificar vídeo durante o scroll, então não há risco de tela
-// preta/azulada no primeiro scroll no mobile.
+// Hero com sequência de imagens (120 quadros extraídos do vídeo do Terras
+// Raras: a obra, o prédio subindo e o casal na varanda) desenhada num
+// <canvas> e "esfregada" pelo scroll — técnica do pacote "Scroll
+// Imobiliario". Diferente do <video>, não depende do navegador decodificar
+// vídeo durante o scroll, então não há risco de tela preta/azulada no
+// primeiro scroll no mobile.
 
-const FRAME_COUNT = 90;
-const CAPTION = "Bem-vindo ao apartamento decorado Evoluc.";
+const FRAME_COUNT = 120;
+
+// Uma legenda por trecho do vídeo; `ate` é a fração do scroll em que o
+// trecho termina (obra até 38%, prédio subindo até 72%, depois a varanda).
+const CAPTIONS = [
+  { ate: 0.38, texto: "Tudo começa no canteiro, com gente que constrói de verdade." },
+  { ate: 0.72, texto: "Andar por andar, até a entrega das chaves." },
+  { ate: 1.01, texto: "E termina na varanda de quem chegou em casa." },
+];
 
 type Source = {
   base: string;
@@ -29,17 +37,17 @@ type Source = {
 };
 
 const desktopSource: Source = {
-  base: "/images/hero-sequence/desktop",
-  poster: "/videos/take-1-poster.jpg",
+  base: "/images/hero-sequence-obra/desktop",
+  poster: "/images/hero-sequence-obra/poster-desktop.jpg",
 };
 
 const mobileSource: Source = {
-  base: "/images/hero-sequence/mobile",
-  poster: "/videos/mobile/take-1-poster.jpg",
+  base: "/images/hero-sequence-obra/mobile",
+  poster: "/images/hero-sequence-obra/poster-mobile.jpg",
 };
 
 function frameSrc(base: string, index: number) {
-  return `${base}/img${String(index + 1).padStart(2, "0")}.webp`;
+  return `${base}/img${String(index + 1).padStart(3, "0")}.webp`;
 }
 
 function clamp01(n: number) {
@@ -81,6 +89,7 @@ export default function ScrollFrameHero() {
   const [failed, setFailed] = useState(false);
   const [introOpacity, setIntroOpacity] = useState(1);
   const [scrollCueOpacity, setScrollCueOpacity] = useState(1);
+  const [captionIndex, setCaptionIndex] = useState(0);
 
   // Se o viewport mudar depois de montado (ex.: redimensionar a janela
   // cruzando o breakpoint), reinicia o estado de "pronto" para a nova
@@ -160,6 +169,7 @@ export default function ScrollFrameHero() {
     requestFrame(source.base, index);
     setIntroOpacity(1 - clamp01(progress / 0.06));
     setScrollCueOpacity(1 - clamp01(progress / 0.04));
+    setCaptionIndex(Math.max(0, CAPTIONS.findIndex((c) => progress < c.ate)));
   });
 
   // Carrega o restante dos quadros em segundo plano (janela ociosa) e
@@ -216,7 +226,7 @@ export default function ScrollFrameHero() {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: "240dvh" }}
+      style={{ height: "320dvh" }}
     >
       <div className="sticky top-0 h-dvh w-full overflow-hidden bg-ink-950">
         {/* Poster estático renderizado já no HTML: a hero aparece na hora,
@@ -255,13 +265,11 @@ export default function ScrollFrameHero() {
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ink-800 via-ink-900 to-ink-950">
             <div className="text-center px-6">
               <p className="font-display text-sm uppercase tracking-[0.3em] text-copper-400">
-                Apartamento decorado Evoluc
+                Construtora Evoluc
               </p>
             </div>
           </div>
         )}
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10 sm:bg-gradient-to-r sm:from-black/55 sm:via-black/25 sm:to-transparent" />
 
         {/* Intro overlay */}
         <div
@@ -273,23 +281,21 @@ export default function ScrollFrameHero() {
         >
           <Container>
             <div className="mx-auto max-w-3xl">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-copper-400 [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-xs">
-                {siteConfig.name}
+              <p className="text-[0.65rem] font-medium uppercase tracking-[0.4em] text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.9),0_2px_10px_rgba(0,0,0,0.75)] sm:text-xs">
+                {siteConfig.name} · Desde {siteConfig.founded}
               </p>
-              <h1 className="font-serif-display mx-auto mt-5 max-w-2xl text-[2.1rem] font-medium leading-[1.02] tracking-tight text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.6),0_4px_24px_rgba(0,0,0,0.5)] sm:mt-7 sm:text-6xl lg:text-7xl">
-                {siteConfig.slogan}
+              <h1 className="font-serif-display mx-auto mt-5 max-w-2xl text-[2.3rem] font-normal leading-[1.04] tracking-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_4px_16px_rgba(0,0,0,0.75),0_12px_40px_rgba(0,0,0,0.5)] sm:mt-7 sm:text-6xl lg:text-7xl">
+                Onde a sua história ganha endereço.
               </h1>
-              <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.8),0_2px_14px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-base">
-                Aqui nascem lares abençoados e famílias felizes. Cada
-                apartamento Evoluc é pensado para guardar as histórias da sua
-                vida, com toda a estrutura de lazer e segurança que sua
-                família merece.
+              <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_2px_14px_rgba(0,0,0,0.75)] sm:mt-7 sm:text-base">
+                Projetamos e construímos apartamentos em São Paulo com o
+                cuidado de quem pensa em gerações.
               </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4">
-                <Button href="/lancamentos" size="lg">
-                  Ver lançamentos
+              <div className="mt-7 flex flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4">
+                <Button href="/lancamentos" variant="light" size="lg">
+                  Conhecer os empreendimentos
                 </Button>
-                <Button href="/simular-financiamento" variant="secondary" size="lg">
+                <Button href="/simular-financiamento" variant="ghost" size="lg">
                   Simular financiamento
                 </Button>
               </div>
@@ -300,21 +306,32 @@ export default function ScrollFrameHero() {
         {/* Legenda do quadro */}
         <div
           style={{ opacity: 1 - introOpacity }}
-          className="absolute inset-x-0 bottom-0 pb-6 text-center sm:pb-10"
+          className="absolute inset-x-0 bottom-0 pb-24 text-center sm:pb-10"
         >
           <Container>
-            <p className="font-serif-display mx-auto max-w-md text-base font-medium text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-2xl">
-              {CAPTION}
-            </p>
+            {/* As três legendas ocupam o mesmo lugar: só a do trecho atual
+                aparece, as outras somem por completo. */}
+            <div className="relative mx-auto grid max-w-lg">
+              {CAPTIONS.map((c, i) => (
+                <p
+                  key={c.texto}
+                  aria-hidden={i !== captionIndex}
+                  className="font-serif-display col-start-1 row-start-1 text-base font-medium text-white transition-opacity duration-500 ease-out [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_4px_16px_rgba(0,0,0,0.7)] sm:text-2xl"
+                  style={{ opacity: i === captionIndex ? 1 : 0 }}
+                >
+                  {c.texto}
+                </p>
+              ))}
+            </div>
           </Container>
         </div>
 
         <div
           style={{ opacity: scrollCueOpacity }}
-          className="pointer-events-none absolute inset-x-0 bottom-24 hidden flex-col items-center text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.8)] sm:flex"
+          className="pointer-events-none absolute inset-x-0 bottom-24 hidden flex-col items-center text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_2px_10px_rgba(0,0,0,0.7)] sm:flex"
         >
           <span className="text-xs font-medium uppercase tracking-[0.3em]">
-            Role para ver o decorado
+            Role para ver a obra
           </span>
           <ChevronDown className="mt-2" size={20} />
         </div>

@@ -7,7 +7,7 @@ import { deliveredExamples } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Empreendimentos Entregues",
   description:
-    "Histórico de empreendimentos entregues pela Evoluc em São Paulo.",
+    "Empreendimentos que a Evoluc já entregou em São Paulo.",
 };
 
 export default function EntreguesPage() {
@@ -15,8 +15,8 @@ export default function EntreguesPage() {
     <>
       <PageHeader
         eyebrow="Entregues"
-        title="Empreendimentos já entregues pela Evoluc"
-        description="Um histórico de obras concluídas com o mesmo padrão de qualidade dos lançamentos atuais."
+        title="O que já entregamos"
+        description="Obras concluídas com o mesmo padrão de qualidade que você encontra nos lançamentos atuais."
       />
 
       <section className="py-20 sm:py-28">

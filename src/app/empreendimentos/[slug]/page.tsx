@@ -96,36 +96,35 @@ export default async function DevelopmentDetailPage({
               playsInline
               preload="auto"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/85 to-ink-950/40" />
           </>
         )}
         <Container className="relative">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-block rounded-full bg-copper-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+            <span className="inline-block rounded-full border border-white/40 bg-black/20 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.2em] text-white backdrop-blur [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
               {statusLabel[dev.status]}
             </span>
             {dev.soldOut && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                <BadgeCheck size={14} className="text-copper-400" />
+              <span className="inline-flex items-center gap-1 rounded-full border border-white/40 bg-black/20 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.2em] text-white backdrop-blur [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
+                <BadgeCheck size={13} className="text-white/70" />
                 100% vendido
               </span>
             )}
           </div>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          <h1 className="font-display mt-5 max-w-3xl text-4xl leading-[1.1] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_4px_16px_rgba(0,0,0,0.75),0_12px_40px_rgba(0,0,0,0.5)] sm:text-5xl lg:text-6xl">
             {dev.name}
           </h1>
-          <p className="mt-4 flex items-center gap-2 text-ink-300">
-            <MapPin size={18} className="text-copper-400" />
+          <p className="mt-5 flex items-center gap-2 text-sm text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_2px_12px_rgba(0,0,0,0.7)]">
+            <MapPin size={16} className="text-white/80" />
             {dev.address ?? `${dev.neighborhood} — ${dev.city}`}
           </p>
-          <p className="mt-5 max-w-2xl text-lg text-ink-300">{dev.tagline}</p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_2px_12px_rgba(0,0,0,0.7)] sm:text-lg">{dev.tagline}</p>
+          <div className="mt-10 flex flex-wrap gap-4">
             {dev.soldOut ? (
-              <Button href="/lancamentos" size="lg">
-                Ver lançamentos atuais
+              <Button href="/lancamentos" variant="light" size="lg">
+                Ver lançamentos
               </Button>
             ) : (
-              <Button href="/simular-financiamento" size="lg">
+              <Button href="/simular-financiamento" variant="light" size="lg">
                 Simular financiamento
               </Button>
             )}
@@ -140,7 +139,7 @@ export default async function DevelopmentDetailPage({
             </Button>
             {dev.tour3dUrl && (
               <Button href={dev.tour3dUrl} variant="ghost" size="lg">
-                <View size={18} />
+                <View size={16} />
                 Tour virtual 360°
               </Button>
             )}
@@ -188,19 +187,19 @@ export default async function DevelopmentDetailPage({
         <Container>
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <h2 className="font-display text-2xl font-bold text-ink-900">
+              <h2 className="font-display text-3xl leading-[1.1] text-ink-950 sm:text-4xl">
                 Sobre o empreendimento
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink-600">
+              <p className="mt-5 text-base leading-relaxed text-ink-600">
                 {dev.description}
               </p>
 
               {dev.story && (
-                <div className="mt-8 rounded-2xl border-l-4 border-copper-500 bg-ink-50 p-6 sm:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-copper-600">
+                <div className="mt-10 rounded-2xl border border-ink-100 bg-ink-50 p-6 sm:p-8">
+                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
                     Uma história Evoluc
                   </p>
-                  <h3 className="font-display mt-2 text-xl font-bold text-ink-900">
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950 mt-3">
                     {dev.story.title}
                   </h3>
                   <div className="mt-4 space-y-3">
@@ -218,7 +217,7 @@ export default async function DevelopmentDetailPage({
 
               {dev.highlights.length > 0 && (
                 <div className="mt-10">
-                  <h3 className="font-display text-lg font-bold text-ink-900">
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
                     Destaques
                   </h3>
                   <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -226,7 +225,7 @@ export default async function DevelopmentDetailPage({
                       <li key={h} className="flex items-start gap-3">
                         <CheckCircle2
                           size={18}
-                          className="mt-0.5 shrink-0 text-copper-600"
+                          className="mt-0.5 shrink-0 text-ink-300"
                         />
                         <span className="text-sm leading-relaxed text-ink-600">
                           {h}
@@ -239,7 +238,7 @@ export default async function DevelopmentDetailPage({
 
               {dev.constructionVideo && (
                 <div className="mt-12">
-                  <h3 className="font-display text-lg font-bold text-ink-900">
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
                     Conheça o projeto
                   </h3>
                   <div className="mt-4 overflow-hidden rounded-xl bg-ink-950">
@@ -258,8 +257,8 @@ export default async function DevelopmentDetailPage({
 
               {dev.advancedConstructionVideo && (
                 <div className="mt-12">
-                  <h3 className="font-display text-lg font-bold text-ink-900">
-                    Obras Avançadas
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
+                    Obra em estágio avançado
                   </h3>
                   <div className="mt-4 overflow-hidden rounded-xl bg-ink-950">
                     <video
@@ -277,8 +276,8 @@ export default async function DevelopmentDetailPage({
 
               {dev.gallery && dev.gallery.length > 0 && (
                 <div className="mt-12">
-                  <h3 className="font-display text-lg font-bold text-ink-900">
-                    Galeria de imagens
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
+                    Galeria
                   </h3>
                   <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                     {dev.gallery.map((src, i) => (
@@ -301,7 +300,7 @@ export default async function DevelopmentDetailPage({
 
               {dev.plans && dev.plans.length > 0 && (
                 <div className="mt-12">
-                  <h3 className="font-display text-lg font-bold text-ink-900">
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
                     Plantas
                   </h3>
                   <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -319,7 +318,7 @@ export default async function DevelopmentDetailPage({
                             sizes="(min-width: 640px) 50vw, 100vw"
                           />
                         </div>
-                        <p className="border-t border-ink-100 px-4 py-3 text-center text-sm font-semibold text-ink-900">
+                        <p className="border-t border-ink-100 px-4 py-3 text-center text-sm font-medium text-ink-950">
                           {plan.label}
                         </p>
                       </div>
@@ -330,7 +329,7 @@ export default async function DevelopmentDetailPage({
 
               {dev.progress && dev.progress.length > 0 && (
                 <div className="mt-12">
-                  <h3 className="font-display text-lg font-bold text-ink-900">
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
                     {dev.status === "entregue"
                       ? "Obra concluída"
                       : "Acompanhe a obra"}
@@ -338,22 +337,22 @@ export default async function DevelopmentDetailPage({
                   <p className="mt-1 text-sm text-ink-500">
                     {dev.status === "entregue"
                       ? "Todas as etapas da construção foram concluídas antes da entrega das chaves."
-                      : "Andamento atualizado — o mesmo dado que o morador acompanha na Área do Morador."}
+                      : "Andamento atualizado, com os mesmos dados que o morador vê na Área do Morador."}
                   </p>
                   <div className="mt-5 space-y-4">
                     {dev.progress.map((p) => (
                       <div key={p.stage}>
                         <div className="flex items-center justify-between text-sm">
-                          <span className="font-semibold text-ink-800">
+                          <span className="font-medium text-ink-800">
                             {p.stage}
                           </span>
-                          <span className="font-semibold text-copper-600">
+                          <span className="tabular-nums text-ink-500">
                             {p.percent}%
                           </span>
                         </div>
-                        <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-ink-100">
+                        <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-ink-100">
                           <div
-                            className="h-full rounded-full bg-copper-600"
+                            className="h-full rounded-full bg-ink-950"
                             style={{ width: `${p.percent}%` }}
                           />
                         </div>
@@ -367,7 +366,7 @@ export default async function DevelopmentDetailPage({
             <aside>
               {dev.amenities.length > 0 && (
                 <div className="rounded-2xl border border-ink-100 bg-ink-50 p-6">
-                  <h3 className="font-display text-lg font-bold text-ink-900">
+                  <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
                     Lazer e infraestrutura
                   </h3>
                   <ul className="mt-4 space-y-2">
@@ -376,7 +375,7 @@ export default async function DevelopmentDetailPage({
                         key={a}
                         className="flex items-center gap-2 text-sm text-ink-600"
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-copper-500" />
+                        <span className="h-1 w-1 rounded-full bg-ink-300" />
                         {a}
                       </li>
                     ))}
@@ -385,13 +384,13 @@ export default async function DevelopmentDetailPage({
               )}
 
               <div className="mt-6 rounded-2xl bg-ink-900 p-6 text-white">
-                <h3 className="font-display text-lg font-bold">
-                  {dev.soldOut ? "Quer conhecer nossos lançamentos?" : "Quer saber mais?"}
+                <h3 className="font-serif-display text-2xl leading-[1.1]">
+                  {dev.soldOut ? "Conheça os lançamentos disponíveis" : "Receba a tabela de preços"}
                 </h3>
-                <p className="mt-2 text-sm text-ink-300">
+                <p className="mt-3 text-sm leading-relaxed text-ink-300">
                   {dev.soldOut
-                    ? "Este empreendimento está 100% vendido, mas nosso time pode te apresentar as oportunidades disponíveis agora."
-                    : "Fale com nosso time comercial e receba a tabela de preços e disponibilidade de unidades."}
+                    ? "Este empreendimento está 100% vendido. Nossa equipe apresenta a você as unidades disponíveis hoje."
+                    : "Fale com a equipe comercial e receba a tabela de preços e a disponibilidade de unidades."}
                 </p>
                 <Button
                   href={getWhatsappUrl(
@@ -399,9 +398,10 @@ export default async function DevelopmentDetailPage({
                       ? `Olá! Vi que o ${dev.name} está 100% vendido e quero conhecer os lançamentos disponíveis.`
                       : `Olá! Quero saber mais sobre o ${dev.name} — tabela de preços e disponibilidade de unidades.`
                   )}
-                  className="mt-5 w-full"
+                  variant="light"
+                  className="mt-6 w-full"
                 >
-                  Falar com consultor
+                  Falar com um consultor
                 </Button>
               </div>
             </aside>
@@ -423,11 +423,11 @@ function Stat({
 }) {
   return (
     <div>
-      <Icon size={20} className="text-copper-600" />
-      <p className="font-display mt-2 text-lg font-bold text-ink-900">
+      <Icon size={18} strokeWidth={1.5} className="text-ink-400" />
+      <p className="font-serif-display mt-3 text-2xl leading-[1.1] text-ink-950">
         {value}
       </p>
-      <p className="text-xs text-ink-500">{label}</p>
+      <p className="mt-1 text-xs uppercase tracking-[0.2em] text-ink-500">{label}</p>
     </div>
   );
 }

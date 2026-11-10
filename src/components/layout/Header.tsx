@@ -61,8 +61,8 @@ export default function Header() {
                 className={clsx(
                   "text-sm font-medium transition-colors",
                   solid
-                    ? "text-ink-700 hover:text-copper-600"
-                    : "text-ink-950 hover:text-copper-600"
+                    ? "text-ink-600 hover:text-ink-950"
+                    : "text-ink-800 hover:text-ink-950"
                 )}
               >
                 {item.label}
@@ -74,7 +74,7 @@ export default function Header() {
             <a
               href={`tel:+55${siteConfig.phone.replace(/\D/g, "")}`}
               className={clsx(
-                "flex items-center gap-2 text-sm font-semibold",
+                "flex items-center gap-2 text-sm font-medium",
                 solid ? "text-ink-700" : "text-ink-950"
               )}
             >
@@ -118,7 +118,7 @@ export default function Header() {
               ))}
               <a
                 href={`tel:+55${siteConfig.phone.replace(/\D/g, "")}`}
-                className="mt-2 flex items-center justify-center gap-2 rounded-full border border-ink-200 px-4 py-3 text-base font-semibold text-ink-800"
+                className="mt-2 flex items-center justify-center gap-2 rounded-full border border-ink-200 px-4 py-3 text-base font-medium text-ink-800"
               >
                 <Phone size={18} />
                 {siteConfig.phone}

@@ -11,13 +11,13 @@ export default function BlogPreview() {
       <Container>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
-            eyebrow="Blog"
-            title="Conteúdo para quem está comprando um imóvel"
-            description="Guias práticos sobre financiamento, escolha de planta e acompanhamento de obra."
+            eyebrow="Guia do comprador"
+            title="Para decidir com tranquilidade"
+            description="Financiamento, escolha da planta e acompanhamento de obra, explicados com clareza."
           />
           <Link
             href="/blog"
-            className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-ink-900 hover:text-copper-600"
+            className="inline-flex shrink-0 items-center gap-1 border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 hover:border-ink-950"
           >
             Ver todos os artigos
             <ArrowRight size={16} />

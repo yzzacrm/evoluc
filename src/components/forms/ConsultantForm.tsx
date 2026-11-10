@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { submitLead } from "@/lib/submit-lead";
 
 const inputClasses =
-  "w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 focus:border-copper-500 focus:outline-none focus:ring-2 focus:ring-copper-500/20";
+  "w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 focus:border-ink-400 focus:outline-none focus:ring-2 focus:ring-ink-950/10";
 
 export default function ConsultantForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
@@ -36,7 +36,7 @@ export default function ConsultantForm() {
     } else {
       setStatus("idle");
       setError(
-        result.message ?? "Não foi possível enviar. Tente pelo WhatsApp."
+        result.message ?? "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp."
       );
     }
   }
@@ -44,12 +44,12 @@ export default function ConsultantForm() {
   if (status === "sent") {
     return (
       <div className="flex flex-col items-center rounded-2xl border border-ink-100 bg-ink-50 px-8 py-14 text-center">
-        <CheckCircle2 className="text-copper-600" size={36} />
-        <h3 className="font-display mt-4 text-lg font-bold text-ink-900">
-          Cadastro recebido!
+        <CheckCircle2 className="text-ink-400" size={32} strokeWidth={1.5} />
+        <h3 className="font-display mt-4 text-2xl leading-[1.15] text-ink-950">
+          Cadastro recebido
         </h3>
         <p className="mt-2 max-w-sm text-sm text-ink-500">
-          Nossa equipe comercial vai avaliar seu perfil e retornar em breve.
+          Obrigado pelo interesse. Nossa equipe comercial vai avaliar o seu perfil e entrar em contato.
         </p>
       </div>
     );
@@ -97,7 +97,7 @@ export default function ConsultantForm() {
       </select>
       <textarea
         name="message"
-        placeholder="Conte um pouco sobre sua experiência (opcional)"
+        placeholder="Conte um pouco sobre a sua trajetória (opcional)"
         rows={4}
         className={inputClasses}
       />
@@ -106,10 +106,10 @@ export default function ConsultantForm() {
         {status === "loading" ? (
           <>
             <Loader2 className="animate-spin" size={18} />
-            Enviando...
+            Enviando
           </>
         ) : (
-          "Quero ser consultor Evoluc"
+          "Enviar cadastro"
         )}
       </Button>
     </form>

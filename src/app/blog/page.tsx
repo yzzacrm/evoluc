@@ -15,8 +15,8 @@ export default function BlogPage() {
     <>
       <PageHeader
         eyebrow="Blog"
-        title="Blog Evoluc"
-        description="Conteúdo para quem está comprando, financiando ou acompanhando a construção do seu imóvel."
+        title="Leituras para quem vai morar ou investir"
+        description="Artigos sobre compra, financiamento e acompanhamento de obra, para decidir com mais clareza."
       />
       <section className="py-20 sm:py-28">
         <Container>

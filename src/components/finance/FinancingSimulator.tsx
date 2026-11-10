@@ -125,10 +125,10 @@ export default function FinancingSimulator() {
               type="checkbox"
               checked={useFgts}
               onChange={(e) => setUseFgts(e.target.checked)}
-              className="h-4 w-4 accent-copper-600"
+              className="h-4 w-4 accent-ink-950"
             />
-            <span className="text-sm font-semibold text-ink-900">
-              Usar saldo do FGTS como entrada
+            <span className="text-sm font-medium text-ink-950">
+              Usar o saldo do FGTS na entrada
             </span>
           </label>
           {useFgts && (
@@ -161,18 +161,18 @@ export default function FinancingSimulator() {
         <div className="sticky top-28 overflow-hidden rounded-2xl bg-ink-950 text-white">
           {stage === "unlocked" ? (
             <div className="p-8">
-              <p className="text-xs font-semibold uppercase tracking-widest text-copper-400">
+              <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-300">
                 {result.faixa.label} do MCMV
               </p>
-              <p className="mt-1 text-xs text-ink-400">
+              <p className="mt-2 text-xs text-ink-400">
                 Taxa de juros estimada: {result.faixa.annualRate.toFixed(2)}%
                 a.a.
               </p>
 
-              <p className="mt-5 text-sm text-ink-400">
+              <p className="mt-6 text-sm text-ink-300">
                 Você pode financiar até
               </p>
-              <p className="font-display text-2xl font-bold">
+              <p className="font-display mt-1 text-4xl leading-[1.1] text-white">
                 {currency(result.financing)}
               </p>
 
@@ -180,14 +180,14 @@ export default function FinancingSimulator() {
                 {result.fgts > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-ink-400">FGTS usado na entrada</span>
-                    <span className="font-semibold">
+                    <span className="font-medium">
                       {currency(result.fgts)}
                     </span>
                   </div>
                 )}
                 <div className="flex items-center justify-between">
                   <span className="text-ink-400">Entrada</span>
-                  <span className="font-semibold text-copper-400">
+                  <span className="font-medium text-white">
                     {currency(result.downPayment)}
                   </span>
                 </div>
@@ -196,7 +196,7 @@ export default function FinancingSimulator() {
                     <span className="text-ink-400">
                       Entrada em até {DOWN_PAYMENT_INSTALLMENTS}x de
                     </span>
-                    <span className="font-semibold">
+                    <span className="font-medium">
                       {currency(result.downPaymentInstallment)}
                     </span>
                   </div>
@@ -205,7 +205,7 @@ export default function FinancingSimulator() {
 
               <div className="mt-5 border-t border-white/10 pt-5">
                 <p className="text-xs text-ink-400">Parcela mensal do financiamento</p>
-                <p className="font-display text-lg font-bold text-copper-400">
+                <p className="font-display mt-1 text-2xl leading-[1.1] text-white">
                   {currency(result.installment)}
                 </p>
               </div>
@@ -222,10 +222,11 @@ export default function FinancingSimulator() {
 
               <Button
                 href={getWhatsappUrl(
-                  `Olá! Simulei um financiamento na Evoluc (${result.faixa.label}, até ${currency(
+                  `Olá, simulei um financiamento na Evoluc (${result.faixa.label}, até ${currency(
                     result.financing
                   )} financiados) e quero falar com um consultor.`
                 )}
+                variant="light"
                 className="mt-6 w-full"
                 size="lg"
               >
@@ -234,35 +235,35 @@ export default function FinancingSimulator() {
             </div>
           ) : stage === "idle" ? (
             <div className="p-8">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-copper-400">
-                <Calculator size={20} />
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/60">
+                <Calculator size={20} strokeWidth={1.5} />
               </div>
-              <h3 className="font-display mt-4 text-lg font-bold">
-                Pronto para ver o resultado?
+              <h3 className="font-display mt-5 text-2xl leading-[1.1]">
+                Ajuste os valores e veja o resultado
               </h3>
-              <p className="mt-2 text-sm text-ink-300">
-                Ajuste a renda e o valor do imóvel ao lado e clique abaixo
-                para calcular seu financiamento.
+              <p className="mt-3 text-sm leading-relaxed text-ink-300">
+                Defina a renda, o valor do imóvel e o prazo ao lado. Quando
+                estiver pronto, calcule o seu financiamento.
               </p>
               <Button
+                variant="light"
                 size="lg"
                 className="mt-6 w-full"
                 onClick={() => setStage("form")}
               >
-                Simular meu financiamento
+                Simular financiamento
               </Button>
             </div>
           ) : (
             <div className="p-8">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-copper-400">
-                <Lock size={20} />
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/60">
+                <Lock size={20} strokeWidth={1.5} />
               </div>
-              <h3 className="font-display mt-4 text-lg font-bold">
-                Veja quanto você pode financiar
+              <h3 className="font-display mt-5 text-2xl leading-[1.1]">
+                Seu resultado está pronto
               </h3>
-              <p className="mt-2 text-sm text-ink-300">
-                Preencha seus dados para liberar o resultado da sua
-                simulação.
+              <p className="mt-3 text-sm leading-relaxed text-ink-300">
+                Informe seus dados para ver a simulação completa.
               </p>
 
               <form onSubmit={handleRegister} className="mt-6 space-y-3">
@@ -270,33 +271,34 @@ export default function FinancingSimulator() {
                   required
                   name="name"
                   placeholder="Nome completo"
-                  className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-ink-400 focus:border-copper-500 focus:outline-none"
+                  className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-ink-400 focus:border-white/60 focus:outline-none"
                 />
                 <input
                   required
                   type="email"
                   name="email"
                   placeholder="E-mail"
-                  className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-ink-400 focus:border-copper-500 focus:outline-none"
+                  className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-ink-400 focus:border-white/60 focus:outline-none"
                 />
                 <input
                   required
                   name="phone"
-                  placeholder="Telefone / WhatsApp"
-                  className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-ink-400 focus:border-copper-500 focus:outline-none"
+                  placeholder="WhatsApp"
+                  className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-ink-400 focus:border-white/60 focus:outline-none"
                 />
                 <label className="flex items-start gap-2 text-xs text-ink-400">
                   <input required type="checkbox" className="mt-0.5" />
                   Li e concordo com a{" "}
                   <a
                     href="/politica-de-privacidade"
-                    className="font-semibold text-copper-400"
+                    className="border-b border-white/30 font-medium text-white hover:border-white"
                   >
                     Política de Privacidade
                   </a>
                   .
                 </label>
                 <Button
+                  variant="light"
                   size="lg"
                   className="w-full"
                   disabled={submitting}
@@ -304,10 +306,10 @@ export default function FinancingSimulator() {
                   {submitting ? (
                     <>
                       <Loader2 className="animate-spin" size={18} />
-                      Calculando...
+                      Calculando
                     </>
                   ) : (
-                    "Ver resultado da simulação"
+                    "Ver o resultado"
                   )}
                 </Button>
               </form>
@@ -339,8 +341,8 @@ function SliderField({
   return (
     <div>
       <div className="flex items-center justify-between">
-        <label className="text-sm font-semibold text-ink-900">{label}</label>
-        <span className="text-sm font-semibold text-copper-600">
+        <label className="text-sm font-medium text-ink-950">{label}</label>
+        <span className="font-display text-lg text-ink-950">
           {format(value)}
         </span>
       </div>
@@ -351,7 +353,7 @@ function SliderField({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-full bg-ink-100 accent-copper-600"
+        className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-full bg-ink-100 accent-ink-950"
       />
     </div>
   );

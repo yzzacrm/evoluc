@@ -25,12 +25,12 @@ const features = [
   {
     icon: MessageSquare,
     title: "Mensagens diretas",
-    description: "Canal com o time Evoluc para dúvidas sobre contrato e obra.",
+    description: "Um canal direto com a equipe Evoluc para dúvidas sobre contrato e obra.",
   },
   {
     icon: BellRing,
     title: "Lembretes e prazos",
-    description: "Alertas de vencimento e documentação pendente.",
+    description: "Avisos de vencimento e de documentos pendentes.",
   },
   {
     icon: FileText,
@@ -45,18 +45,18 @@ export default function AreaDoMoradorPage() {
       <Container>
         <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-2">
           <div>
-            <div className="flex items-center gap-2 text-copper-400">
-              <ShieldCheck size={18} />
-              <span className="text-sm font-semibold uppercase tracking-[0.25em]">
-                Acesso exclusivo
+            <div className="flex items-center gap-2 text-copper-300">
+              <ShieldCheck size={14} />
+              <span className="text-[0.7rem] font-medium uppercase tracking-[0.3em]">
+                Acesso individual
               </span>
             </div>
-            <h1 className="font-display mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            <h1 className="font-display mt-4 text-4xl leading-[1.1] text-white sm:text-5xl">
               Área do Morador
             </h1>
-            <p className="mt-5 max-w-md text-lg text-ink-300">
-              Cada cliente Evoluc tem um acesso individual para acompanhar
-              tudo sobre o seu imóvel, do contrato ao pós-entrega.
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink-300 sm:text-lg">
+              Cada cliente Evoluc recebe um acesso próprio para acompanhar o
+              seu imóvel, da assinatura do contrato ao pós-entrega.
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -65,10 +65,10 @@ export default function AreaDoMoradorPage() {
                   key={title}
                   className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
                 >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-copper-600/20 text-copper-400">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 text-white/70">
                     <Icon size={16} />
                   </div>
-                  <h3 className="font-display mt-3 text-sm font-bold text-white">
+                  <h3 className="font-display mt-3 text-base text-white">
                     {title}
                   </h3>
                   <p className="mt-1 text-xs leading-relaxed text-ink-400">

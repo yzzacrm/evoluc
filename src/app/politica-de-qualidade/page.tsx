@@ -24,7 +24,7 @@ export default function PoliticaDeQualidadePage() {
       <PageHeader
         eyebrow="Compromisso"
         title="Política de Qualidade"
-        description="Nosso padrão de qualidade construtiva segue diretrizes do PBQP-H e é aplicado em todas as fases dos nossos empreendimentos — do projeto à entrega."
+        description="Nosso padrão de qualidade construtiva segue as diretrizes do PBQP-H e vale para todas as fases de cada empreendimento, do projeto à entrega."
       />
 
       <section className="py-20 sm:py-28">
@@ -43,7 +43,7 @@ export default function PoliticaDeQualidadePage() {
               {commitments.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle2
-                    className="mt-0.5 shrink-0 text-copper-600"
+                    className="mt-0.5 shrink-0 text-ink-400"
                     size={20}
                   />
                   <span className="text-sm leading-relaxed text-ink-600">
@@ -53,11 +53,11 @@ export default function PoliticaDeQualidadePage() {
               ))}
             </ul>
 
-            <div className="mt-12 rounded-2xl border border-ink-100 bg-ink-50 p-6 text-sm text-ink-500">
-              Documentos e certificados completos podem ser solicitados pelo
-              nosso canal de{" "}
-              <a href="/fale-conosco" className="font-semibold text-copper-600">
-                Fale Conosco
+            <div className="mt-12 rounded-2xl border border-ink-100 p-6 text-sm text-ink-500">
+              Documentos e certificados completos podem ser solicitados pela
+              página{" "}
+              <a href="/fale-conosco" className="border-b border-ink-950/20 pb-0.5 font-medium text-ink-950 hover:border-ink-950">
+                Fale com a Evoluc
               </a>
               .
             </div>

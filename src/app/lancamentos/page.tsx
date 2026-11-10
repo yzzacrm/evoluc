@@ -7,7 +7,7 @@ import { developments } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Lançamentos",
   description:
-    "Conheça os lançamentos imobiliários da Evoluc na Zona Leste de São Paulo.",
+    "Lançamentos da Evoluc na Zona Leste de São Paulo: plantas, lazer e localização de cada empreendimento.",
 };
 
 export default function LancamentosPage() {
@@ -15,8 +15,8 @@ export default function LancamentosPage() {
     <>
       <PageHeader
         eyebrow="Lançamentos"
-        title="Empreendimentos abertos para venda"
-        description="Unidades com plantas flexíveis, área de lazer completa e localização estratégica na Zona Leste de São Paulo."
+        title="Empreendimentos com unidades à venda"
+        description="Apartamentos na Zona Leste de São Paulo, com plantas flexíveis, lazer completo e localização estratégica."
       />
       <section className="py-20 sm:py-28">
         <Container>

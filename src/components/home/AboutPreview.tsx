@@ -20,30 +20,28 @@ export default function AboutPreview() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-copper-600">
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
               Quem somos
             </p>
-            <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
-              Desde {siteConfig.founded} construindo mais do que imóveis
+            <h2 className="font-display mt-4 text-3xl leading-[1.1] text-ink-950 sm:text-[2.6rem]">
+              Uma construtora que cresce pela forma como trabalha
             </h2>
             <p className="mt-5 text-base leading-relaxed text-ink-500">
-              A Evoluc nasceu com o propósito de entregar sempre o
-              melhor aos seus clientes, crescendo pela competência e
-              dedicação de seus colaboradores. Nosso objetivo é levar à
-              sociedade ao nosso entorno experiências de conforto, estética e
-              segurança em cada empreendimento.
+              Nascemos em {siteConfig.founded} com um compromisso simples:
+              entregar o melhor a quem confia em nós. Crescemos pela
+              competência e pela dedicação das nossas equipes, levando
+              conforto, estética e segurança a cada bairro onde construímos.
             </p>
             <p className="mt-4 text-base leading-relaxed text-ink-500">
-              Trabalhamos com processos certificados pelo PBQP-H e um modelo
-              de relacionamento que não termina na entrega das chaves — é
-              nisso que nasce a Área do Morador, nossa plataforma de
-              acompanhamento contínuo.
+              Nossos processos são certificados pelo PBQP-H, e o
+              relacionamento não termina na entrega das chaves: é para isso
+              que existe a Área do Morador.
             </p>
             <Link
               href="/quem-somos"
-              className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-ink-900 hover:text-copper-600"
+              className="mt-8 inline-flex items-center gap-1 border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 hover:border-ink-950"
             >
-              Conheça nossa história completa
+              Conhecer a nossa história
               <ArrowRight size={16} />
             </Link>
           </div>

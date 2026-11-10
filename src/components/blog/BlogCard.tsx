@@ -25,7 +25,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(min-width: 768px) 33vw, 100vw"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-copper-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.2em] text-ink-950 backdrop-blur-sm">
           {post.category}
         </span>
       </div>
@@ -38,13 +38,13 @@ export default function BlogCard({ post }: { post: BlogPost }) {
             <Clock size={13} /> {post.readTime}
           </span>
         </div>
-        <h3 className="font-display mt-3 text-lg font-bold text-ink-900">
+        <h3 className="font-display mt-3 text-xl leading-[1.2] text-ink-950">
           {post.title}
         </h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-500">
           {post.excerpt}
         </p>
-        <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-ink-900 group-hover:text-copper-600">
+        <span className="mt-5 inline-flex items-center gap-1 self-start border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 group-hover:border-ink-950">
           Ler artigo
           <ArrowUpRight size={16} />
         </span>
