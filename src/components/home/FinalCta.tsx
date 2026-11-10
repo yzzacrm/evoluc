@@ -1,34 +1,30 @@
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site-config";
-import { Phone, Calculator } from "lucide-react";
 
 export default function FinalCta() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-copper-600 to-copper-700 px-8 py-14 text-center sm:px-16">
-          <Calculator className="mx-auto text-white/90" size={32} />
-          <h2 className="font-display mx-auto mt-5 max-w-xl text-3xl font-extrabold text-white sm:text-4xl">
-            Faça sua simulação e descubra seu potencial de financiamento
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-copper-50">
-            Em poucos minutos você entende as condições possíveis para
-            conquistar seu apartamento Evoluc.
+        <div className="overflow-hidden rounded-3xl bg-ink-950 px-8 py-16 text-center sm:px-16 sm:py-20">
+          <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-300">
+            Financiamento
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Button
-              href="/simular-financiamento"
-              variant="secondary"
-              size="lg"
-            >
-              Simular agora
+          <h2 className="font-display mx-auto mt-5 max-w-xl text-3xl leading-[1.1] text-white sm:text-[2.6rem]">
+            Descubra quanto você pode financiar
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-ink-300">
+            Uma simulação rápida mostra as condições possíveis para o seu
+            apartamento Evoluc.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            <Button href="/simular-financiamento" variant="light" size="lg">
+              Simular financiamento
             </Button>
             <a
               href={`tel:+55${siteConfig.phone.replace(/\D/g, "")}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white"
+              className="text-sm text-white/75 transition-colors hover:text-white"
             >
-              <Phone size={16} />
               ou ligue {siteConfig.phone}
             </a>
           </div>

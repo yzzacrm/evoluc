@@ -15,8 +15,8 @@ export default function FaleConoscoPage() {
     <>
       <PageHeader
         eyebrow="Contato"
-        title="Fale conosco"
-        description="Tire dúvidas sobre lançamentos, financiamento ou fale diretamente com nosso time comercial."
+        title="Fale com a Evoluc"
+        description="Dúvidas sobre lançamentos, financiamento ou a sua unidade. Nossa equipe responde pelo canal que você preferir."
       />
 
       <section className="py-16 sm:py-20">
@@ -64,14 +64,14 @@ function InfoRow({
 }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-copper-50 text-copper-600">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink-100 text-ink-500">
         <Icon size={18} />
       </div>
       <div>
-        <p className="text-xs uppercase tracking-wide text-ink-400">
+        <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-ink-400">
           {label}
         </p>
-        <p className="text-sm font-semibold text-ink-900">{value}</p>
+        <p className="mt-1 text-sm font-medium text-ink-950">{value}</p>
       </div>
     </div>
   );

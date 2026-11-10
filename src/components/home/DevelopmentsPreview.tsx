@@ -23,14 +23,14 @@ export default function DevelopmentsPreview() {
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="Empreendimentos"
-            title="Nossos empreendimentos"
-            description="Lançamentos em construção e empreendimentos já entregues — a mesma qualidade em cada etapa da Evoluc."
+            title="Endereços pensados para viver bem"
+            description="Lançamentos em obra e projetos já entregues, com o mesmo padrão de execução do primeiro ao último andar."
           />
           <Link
             href="/lancamentos"
-            className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-ink-900 hover:text-copper-600"
+            className="inline-flex shrink-0 items-center gap-1 border-b border-ink-950/20 pb-1 text-sm font-medium text-ink-950 hover:border-ink-950"
           >
-            Ver todos os empreendimentos
+            Ver todos
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -52,15 +52,14 @@ export default function DevelopmentsPreview() {
 
         {videos.length > 0 && (
           <div className="mt-16 border-t border-ink-200 pt-16">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-copper-600">
-              Vídeos
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
+              Em obra
             </p>
-            <h3 className="font-display mt-2 text-2xl font-bold text-ink-900">
-              Vídeos dos empreendimentos
+            <h3 className="font-serif-display mt-3 text-2xl text-ink-950 sm:text-3xl">
+              Acompanhe cada canteiro
             </h3>
             <p className="mt-2 max-w-xl text-ink-500">
-              Imagens reais de cada empreendimento Evoluc, em obras ou já
-              entregue.
+              Imagens reais das nossas obras e dos prédios já entregues.
             </p>
 
             <div className="scrollbar-hide -mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4">

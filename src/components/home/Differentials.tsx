@@ -10,13 +10,13 @@ export default function Differentials() {
     <section className="bg-ink-950 py-20 sm:py-28">
       <Container>
         <div className="mb-10 max-w-xl sm:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-copper-400">
-            Por que escolher a Evoluc
+          <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-300">
+            Por que a Evoluc
           </p>
           <h2 className="font-serif-display mt-4 text-3xl font-medium leading-[1.05] tracking-tight text-white sm:text-5xl">
             Mais do que apartamentos.
             <br />
-            <em className="not-italic text-copper-300">Novas histórias.</em>
+            <em className="italic text-ink-300">Novas histórias.</em>
           </h2>
         </div>
 
@@ -26,7 +26,7 @@ export default function Differentials() {
               key={item.title}
               className="group relative min-h-[150px] bg-ink-950 p-3 transition-colors hover:bg-ink-900 sm:min-h-[260px] sm:p-7"
             >
-              <span className="text-[0.6rem] font-semibold tracking-[0.1em] text-copper-400 sm:text-xs sm:tracking-[0.15em]">
+              <span className="text-[0.6rem] font-medium tracking-[0.1em] text-copper-300 sm:text-xs sm:tracking-[0.15em]">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-serif-display mt-3 max-w-[14rem] text-[0.8rem] font-medium leading-tight text-white sm:mt-9 sm:text-xl">
@@ -36,7 +36,7 @@ export default function Differentials() {
                 {item.description}
               </p>
               <ArrowUpRight
-                className="absolute right-3 top-3 h-3.5 w-3.5 text-copper-400 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 sm:right-7 sm:bottom-7 sm:top-auto sm:h-5 sm:w-5"
+                className="absolute right-3 top-3 h-3.5 w-3.5 text-white/40 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 sm:right-7 sm:bottom-7 sm:top-auto sm:h-5 sm:w-5"
               />
             </div>
           ))}

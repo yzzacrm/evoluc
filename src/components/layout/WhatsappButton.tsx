@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 export default function WhatsappButton() {
   const digits = siteConfig.whatsapp.replace(/\D/g, "");
   const message = encodeURIComponent(
-    "Olá! Vim pelo site da Evoluc e gostaria de mais informações."
+    "Olá, vim pelo site da Evoluc e gostaria de mais informações."
   );
 
   return (

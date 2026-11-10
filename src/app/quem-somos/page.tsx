@@ -6,8 +6,6 @@ import PortalTeaser from "@/components/home/PortalTeaser";
 import { siteConfig } from "@/lib/site-config";
 import {
   ShieldCheck,
-  Target,
-  Eye,
   Award,
   Zap,
   HeartHandshake,
@@ -23,38 +21,38 @@ export const metadata: Metadata = {
 const founderStories = [
   {
     tag: "A origem",
-    title: "A história do pedreiro e do terreno impossível",
+    title: "O pedreiro e o terreno que ninguém queria",
     text: [
-      "A Evoluc não nasceu em uma prancheta de arquitetura, mas no chão da obra, onde a poeira e o trabalho duro se encontram. Nosso fundador, o Lucas, não começou como executivo, mas como pedreiro. Ele carrega nas mãos o conhecimento que muitos só possuem no papel.",
-      "O início de tudo foi um terreno abandonado, com um grave problema de documentação — um risco que nenhuma empresa queria assumir. Onde todos viam um obstáculo, o Lucas viu uma oportunidade. Com uma coragem que beirava a ousadia, ele procurou o dono e fez uma proposta que mudaria seu destino: \"Eu construo dois sobrados no seu terreno. Um deles, o seu, continua com o problema que o senhor já conhece. O outro, que fica para mim, eu regularizo e deixo 100% certo.\"",
-      "O dono aceitou. E nesse aperto de mão nasceu o DNA da Evoluc: a capacidade de enxergar valor no improvável e a coragem de transformar problemas em alicerces.",
+      "A Evoluc não começou em uma prancheta. Começou no canteiro de obras. Lucas, nosso fundador, foi pedreiro antes de ser empresário, e traz da prática o conhecimento que muitos só conhecem no papel.",
+      "O ponto de partida foi um terreno abandonado, com um problema grave de documentação. Nenhuma empresa queria assumir o risco. Lucas procurou o dono e fez uma proposta: \"Eu construo dois sobrados no seu terreno. Um deles, o seu, continua com o problema que o senhor já conhece. O outro, que fica para mim, eu regularizo e deixo 100% certo.\"",
+      "O dono aceitou. Desse acordo veio o que ainda orienta a Evoluc: enxergar valor onde outros veem impedimento, e resolver o problema em vez de contorná-lo.",
     ],
   },
   {
     tag: "O nome Oberon",
-    title: "A história do Residencial Oberon e a homenagem",
+    title: "Residencial Oberon: um nome dado como palavra",
     text: [
-      "O Residencial Oberon é um monumento à palavra dada. A negociação pelo seu terreno foi longa e árdua. Para selar a confiança com o proprietário, um homem de muita história, o Lucas fez mais do que uma promessa de negócio — fez um pacto de honra: o empreendimento levaria o sobrenome de sua família, Oberon.",
-      "A vida, em sua sabedoria implacável, não permitiu que o Sr. Oberon visse a obra magnífica ser concluída — ele partiu meses antes. Mas seu legado não. Tempo depois, sua filha visitou o local, parou em frente à fachada imponente e, ao ler o nome \"Residencial Oberon\" gravado na estrutura, seus olhos se encheram de lágrimas.",
-      "Ali, ela não viu um prédio. Viu a eternidade do nome de seu pai. Nesse dia, tivemos a certeza de que nosso trabalho não é sobre concreto — nós materializamos o respeito e construímos legados que o tempo não pode apagar.",
+      "A negociação pelo terreno do Residencial Oberon foi longa. Para firmar a confiança com o proprietário, um homem de muita história, Lucas assumiu um compromisso que ia além do negócio: o empreendimento levaria o sobrenome da família dele, Oberon.",
+      "O Sr. Oberon faleceu meses antes da conclusão da obra. Algum tempo depois, a filha dele visitou o local, parou diante da fachada e, ao ler \"Residencial Oberon\" gravado na estrutura, se emocionou.",
+      "Naquele dia ficou claro para nós que o trabalho não termina no concreto. Um edifício também guarda nomes, compromissos e memórias.",
     ],
   },
   {
     tag: "Qualidade",
-    title: "A história da qualidade inegociável",
+    title: "Uma qualidade que não entra na conta da economia",
     text: [
-      "Nossa busca pela excelência é uma batalha diária, travada nas pequenas decisões. Em uma reunião de planejamento, a pauta era a otimização de custos: usar materiais mais simples, uma pia de inox aqui, um pouco menos de azulejo ali.",
-      "Fez-se um silêncio. E foi o Léo que, com a calma e a firmeza de quem guarda os portões do reino, interrompeu a conversa: \"Não. Essa economia não está no rumo da Evoluc. O cliente que nos escolhe espera o melhor, e é o melhor que vamos entregar.\"",
-      "Essa frase não foi um comando, foi um decreto — a prova de que nossa qualidade não é um argumento de marketing, mas um princípio moral, defendido todos os dias, mesmo quando ninguém está olhando.",
+      "A qualidade se decide nos detalhes. Em uma reunião de planejamento, a pauta era reduzir custos: materiais mais simples, uma pia de inox aqui, um pouco menos de azulejo ali.",
+      "Léo interrompeu a conversa com calma: \"Não. Essa economia não está no rumo da Evoluc. O cliente que nos escolhe espera o melhor, e é o melhor que vamos entregar.\"",
+      "A frase virou critério. Para nós, qualidade não é argumento de venda. É um princípio que vale em cada decisão, inclusive nas que ninguém vê.",
     ],
   },
   {
     tag: "Resiliência",
-    title: "A história da superação e resiliência",
+    title: "O projeto que seguiu",
     text: [
-      "No início do empreendimento Futuri, um grande sócio e amigo estava conosco. A quatro meses do início da obra, uma tragédia o levou. O choque foi profundo, a dor imensa, o futuro incerto. Seria mais fácil abandonar o projeto — mas a Evoluc não foi forjada no caminho mais fácil.",
-      "Após o luto, uma decisão foi tomada: \"o projeto segue\". Procuramos os filhos dele e, mesmo abalados, eles viram em nós a solidez da palavra de seu pai. Confiaram. E juntos, levamos o sonho adiante e entregamos a obra.",
-      "Esta história é a prova de que nossa estrutura mais forte não é de concreto armado. É a resiliência — a certeza de que, não importa a tempestade, honramos nossos compromissos e sempre entregamos o que prometemos.",
+      "No início do empreendimento Futuri, um grande sócio e amigo estava conosco. A quatro meses do início da obra, ele faleceu. Seria mais simples interromper o projeto.",
+      "Depois do luto, decidimos: \"o projeto segue\". Procuramos os filhos dele, que reconheceram em nós a mesma palavra que o pai mantinha. Eles confiaram, e juntos levamos o projeto adiante até a entrega da obra.",
+      "É essa a estrutura que mais nos sustenta: cumprir o que foi combinado, mesmo nos momentos mais difíceis.",
     ],
   },
 ];
@@ -62,23 +60,23 @@ const founderStories = [
 const values = [
   {
     icon: Award,
-    title: "Qualidade Inegociável",
-    text: "Não abrimos mão da excelência. Do projeto ao acabamento, buscamos o melhor, pois estamos construindo o maior sonho dos nossos clientes.",
+    title: "Qualidade inegociável",
+    text: "Do projeto ao acabamento, não abrimos mão do padrão que definimos. Quem compra um imóvel toma uma das decisões mais importantes da vida.",
   },
   {
     icon: Zap,
-    title: "Coragem para Realizar",
-    text: "Enfrentamos o improvável. Onde outros veem problemas, nós vemos oportunidades para inovar e superar desafios.",
+    title: "Coragem para realizar",
+    text: "Encaramos situações que outros evitam e buscamos solução onde parecia não haver caminho.",
   },
   {
     icon: HeartHandshake,
-    title: "Parceria de Confiança",
-    text: "Construímos relações sólidas e transparentes com clientes, colaboradores e investidores. Jogamos juntos, do início ao fim.",
+    title: "Parceria de confiança",
+    text: "Relações claras com clientes, colaboradores e investidores, do início ao fim de cada projeto.",
   },
   {
     icon: Users,
-    title: "Legado Humano",
-    text: "Não erguemos apenas paredes, construímos histórias. Honramos nosso passado e as pessoas que fazem parte da nossa jornada.",
+    title: "Legado humano",
+    text: "Cada obra carrega histórias. Respeitamos o nosso passado e as pessoas que fazem parte dele.",
   },
 ];
 
@@ -87,8 +85,8 @@ export default function QuemSomosPage() {
     <>
       <PageHeader
         eyebrow="Quem somos"
-        title={`Desde ${siteConfig.founded} construindo mais do que imóveis`}
-        description="A Evoluc é uma construtora e incorporadora paulistana fundada por Léo e Lucas — engenharia de alta performance com propósito humano."
+        title={`Construindo em São Paulo desde ${siteConfig.founded}`}
+        description="A Evoluc é uma construtora e incorporadora paulistana fundada por Léo e Lucas. Engenharia rigorosa, conduzida por pessoas."
       />
 
       <section className="py-20 sm:py-28">
@@ -96,26 +94,24 @@ export default function QuemSomosPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <div>
               <p className="text-base leading-relaxed text-ink-600">
-                Desde 2012 a Evoluc vem construindo uma história de
-                sucesso, com foco em entregar sempre o melhor aos seus
-                clientes e crescendo pela competência e dedicação de seus
-                colaboradores.
+                Desde 2012, a Evoluc cresce pela competência e pela dedicação
+                das suas equipes, com um compromisso que não mudou: entregar
+                o melhor a quem confia em nós.
               </p>
               <p className="mt-4 text-base leading-relaxed text-ink-600">
-                Nosso objetivo é levar à sociedade ao nosso entorno
-                experiências de conforto, estética e segurança com nossos
-                empreendimentos — do primeiro contato comercial até muito
-                depois da entrega das chaves.
+                Cada empreendimento leva conforto, estética e segurança ao
+                bairro onde está. Esse cuidado começa no primeiro contato e
+                continua muito depois da entrega das chaves.
               </p>
-              <p className="mt-4 font-display text-lg font-semibold italic text-ink-900">
+              <p className="mt-6 font-display text-xl italic text-ink-950">
                 &ldquo;Evoluc. A engenharia que constrói seu futuro.&rdquo;
               </p>
-              <div className="mt-6 flex items-center gap-3 rounded-xl border border-ink-100 bg-ink-50 p-4">
-                <ShieldCheck className="shrink-0 text-copper-600" size={24} />
+              <div className="mt-8 flex items-center gap-3 rounded-xl border border-ink-100 p-4">
+                <ShieldCheck className="shrink-0 text-ink-500" size={22} />
                 <p className="text-sm text-ink-600">
                   Processos construtivos avaliados dentro do{" "}
-                  <strong>PBQP-H</strong> — Programa Brasileiro de Qualidade e
-                  Produtividade do Habitat.
+                  <strong className="font-medium text-ink-950">PBQP-H</strong>,
+                  o Programa Brasileiro de Qualidade e Produtividade do Habitat.
                 </p>
               </div>
             </div>
@@ -131,9 +127,9 @@ export default function QuemSomosPage() {
       <section className="bg-ink-50 py-20 sm:py-28">
         <Container>
           <SectionHeading
-            eyebrow="As histórias fundadoras"
-            title="Um relatório não. Um espelho."
-            description="O que você vai ler não são estudos de caso — são as histórias reais por trás de cada decisão que tomamos e cada obra que erguemos."
+            eyebrow="Nossa história"
+            title="Quatro momentos que definiram a Evoluc"
+            description="Histórias reais por trás das decisões que tomamos e das obras que entregamos."
           />
           <div className="mt-14 space-y-14">
             {founderStories.map((story) => (
@@ -141,10 +137,10 @@ export default function QuemSomosPage() {
                 key={story.title}
                 className="rounded-2xl border border-ink-100 bg-white p-8 sm:p-10"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-copper-600">
+                <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
                   {story.tag}
                 </p>
-                <h3 className="font-display mt-2 text-2xl font-bold text-ink-900">
+                <h3 className="font-display mt-3 text-2xl leading-[1.15] text-ink-950 sm:text-[1.75rem]">
                   {story.title}
                 </h3>
                 <div className="mt-5 space-y-4">
@@ -167,26 +163,29 @@ export default function QuemSomosPage() {
         <Container>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <div className="rounded-2xl border border-ink-100 p-8">
-              <Target className="text-copper-600" size={28} />
-              <h3 className="font-display mt-4 text-xl font-bold text-ink-900">
-                Nossa Missão
+              <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
+                Propósito
+              </p>
+              <h3 className="font-display mt-4 text-2xl leading-[1.15] text-ink-950">
+                Missão
               </h3>
               <p className="mt-3 text-base leading-relaxed text-ink-600">
-                Entregar empreendimentos com engenharia de alta performance e
-                qualidade inegociável, superando as expectativas dos clientes
-                e valorizando nosso time e parceiros em cada etapa do
-                processo.
+                Entregar empreendimentos com engenharia rigorosa e qualidade
+                inegociável, superando as expectativas dos clientes e
+                valorizando a equipe e os parceiros em cada etapa.
               </p>
             </div>
             <div className="rounded-2xl border border-ink-100 p-8">
-              <Eye className="text-copper-600" size={28} />
-              <h3 className="font-display mt-4 text-xl font-bold text-ink-900">
-                Nossa Visão
+              <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-600">
+                Direção
+              </p>
+              <h3 className="font-display mt-4 text-2xl leading-[1.15] text-ink-950">
+                Visão
               </h3>
               <p className="mt-3 text-base leading-relaxed text-ink-600">
-                Ser a construtora referência em qualidade e confiança em
-                nossa região, reconhecida por criar projetos que evoluem a
-                vida das pessoas e o ambiente ao nosso redor.
+                Ser referência em qualidade e confiança na nossa região, com
+                projetos que melhoram a vida das pessoas e o entorno onde
+                estão.
               </p>
             </div>
           </div>
@@ -197,8 +196,8 @@ export default function QuemSomosPage() {
         <Container>
           <SectionHeading
             eyebrow="Nossos valores"
-            title="As leis que regem nosso comportamento"
-            description="São inegociáveis."
+            title="O que orienta cada decisão"
+            description="Quatro princípios que valem para todos na Evoluc, em qualquer obra."
             light
           />
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -207,14 +206,14 @@ export default function QuemSomosPage() {
                 key={title}
                 className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-copper-600/20 text-copper-400">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/15 text-white/70">
                   <Icon size={20} />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-white">
+                  <h3 className="font-display text-xl leading-[1.2] text-white">
                     {title}
                   </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-ink-300">
+                  <p className="mt-2 text-sm leading-relaxed text-ink-300">
                     {text}
                   </p>
                 </div>

@@ -14,8 +14,8 @@ export default function DiferenciaisPage() {
     <>
       <PageHeader
         eyebrow="Diferenciais"
-        title="Por que comprar com a Evoluc"
-        description="Engenharia com processo, comunicação transparente durante a obra e uma plataforma exclusiva para acompanhar cada etapa do seu imóvel."
+        title="O que você encontra em um imóvel Evoluc"
+        description="Engenharia com processo, informação clara durante a obra e um acesso individual para acompanhar cada etapa do seu imóvel."
       />
       <Differentials />
       <PortalTeaser />

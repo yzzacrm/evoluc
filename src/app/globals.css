@@ -4,33 +4,40 @@
   --background: #ffffff;
   --foreground: #14181f;
 
-  /* "Azul Confiança" — cor principal oficial da marca Evoluc (#1a3f5c).
+  /* Azul-marinho elegante (Posca #11114E), escolhido pelo cliente no lugar
+     do "Azul Confiança" (#1a3f5c) anterior — mais vivo, menos apagado.
      Tons 700-950 seguem em direção à cor oficial; 50-600 mantidos com
      contraste testado (AA) para uso em texto de corpo. */
-  --color-ink-950: #1a3f5c;
-  --color-ink-900: #22405b;
-  --color-ink-800: #2a415a;
-  --color-ink-700: #324159;
-  --color-ink-600: #3a4258;
-  --color-ink-500: #545e78;
-  --color-ink-400: #7a8296;
-  --color-ink-300: #a6acba;
-  --color-ink-200: #d3d6dd;
-  --color-ink-100: #eceef2;
-  --color-ink-50: #f6f7f9;
+  --color-ink-950: #11114e;
+  --color-ink-900: #1a1a61;
+  --color-ink-800: #27277c;
+  --color-ink-700: #373795;
+  --color-ink-600: #4747ae;
+  --color-ink-500: #6464b9;
+  --color-ink-400: #9292c9;
+  --color-ink-300: #b5b5d9;
+  --color-ink-200: #d3d3e9;
+  --color-ink-100: #e6e6f4;
+  --color-ink-50: #f4f4fb;
 
-  /* "Laranja Humano" — cor de destaque oficial da marca Evoluc (#f37021) */
-  --color-copper-950: #431c05;
-  --color-copper-900: #6b2b09;
-  --color-copper-800: #93390c;
-  --color-copper-700: #bb4810;
-  --color-copper-600: #f37021;
-  --color-copper-500: #f5813d;
-  --color-copper-400: #f89760;
-  --color-copper-300: #fab182;
-  --color-copper-200: #fccca8;
-  --color-copper-100: #fde3ce;
-  --color-copper-50: #fef4ea;
+  /* Acento "cobre": o "Laranja Humano" da marca (#f37021) fica só no logo.
+     No site o destaque é um cobre queimado, mais discreto, usado em
+     detalhes (sobretítulos, números, fios) e nunca em botões. */
+  --color-copper-950: #3a2516;
+  --color-copper-900: #5a3a22;
+  --color-copper-800: #7a4f2f;
+  --color-copper-700: #8f5e3a;
+  --color-copper-600: #a26d46;
+  --color-copper-500: #b3825d;
+  --color-copper-400: #c49a79;
+  --color-copper-300: #d6b79c;
+  --color-copper-200: #e6d3c2;
+  --color-copper-100: #f1e7dd;
+  --color-copper-50: #f8f3ee;
+
+  /* Areia: fundo neutro quente para seções claras */
+  --color-sand-50: #faf8f5;
+  --color-sand-100: #f3efe9;
 }
 
 @theme inline {
@@ -60,6 +67,8 @@
   --color-copper-200: var(--color-copper-200);
   --color-copper-100: var(--color-copper-100);
   --color-copper-50: var(--color-copper-50);
+  --color-sand-50: var(--color-sand-50);
+  --color-sand-100: var(--color-sand-100);
 
   --font-sans: var(--font-montserrat);
   --font-display: var(--font-montserrat);
@@ -73,6 +82,16 @@ body {
 
 .font-display {
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+/* Títulos de página e de seção: serifada leve, em vez do Montserrat
+   extra-negrito — o site inteiro ganha um tom mais editorial. Rótulos
+   pequenos (cards, preços) continuam no Montserrat. */
+h1.font-display,
+h2.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 /* Fonte serifada do estilo "Scroll Imobiliario" — usada só na hero da home

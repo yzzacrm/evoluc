@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 export default function PoliticaDePrivacidadePage() {
   return (
     <>
-      <PageHeader eyebrow="Privacidade" title="Política de Privacidade" />
+      <PageHeader
+        eyebrow="Privacidade"
+        title="Política de Privacidade"
+        description="Como a Evoluc trata os dados pessoais que você compartilha neste site."
+      />
 
       <section className="py-20 sm:py-28">
         <Container>
@@ -25,7 +29,7 @@ export default function PoliticaDePrivacidadePage() {
             </p>
 
             <div>
-              <h2 className="font-display text-lg font-bold text-ink-900">
+              <h2 className="font-display text-xl leading-[1.2] text-ink-950">
                 1. Dados coletados
               </h2>
               <p className="mt-2">
@@ -37,7 +41,7 @@ export default function PoliticaDePrivacidadePage() {
             </div>
 
             <div>
-              <h2 className="font-display text-lg font-bold text-ink-900">
+              <h2 className="font-display text-xl leading-[1.2] text-ink-950">
                 2. Uso das informações
               </h2>
               <p className="mt-2">
@@ -49,7 +53,7 @@ export default function PoliticaDePrivacidadePage() {
             </div>
 
             <div>
-              <h2 className="font-display text-lg font-bold text-ink-900">
+              <h2 className="font-display text-xl leading-[1.2] text-ink-950">
                 3. Compartilhamento
               </h2>
               <p className="mt-2">
@@ -61,7 +65,7 @@ export default function PoliticaDePrivacidadePage() {
             </div>
 
             <div>
-              <h2 className="font-display text-lg font-bold text-ink-900">
+              <h2 className="font-display text-xl leading-[1.2] text-ink-950">
                 4. Seus direitos
               </h2>
               <p className="mt-2">
@@ -69,7 +73,7 @@ export default function PoliticaDePrivacidadePage() {
                 exclusão dos seus dados através do e-mail{" "}
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="font-semibold text-copper-600"
+                  className="border-b border-ink-950/20 pb-0.5 font-medium text-ink-950 hover:border-ink-950"
                 >
                   {siteConfig.email}
                 </a>

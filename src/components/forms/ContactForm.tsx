@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { submitLead } from "@/lib/submit-lead";
 
 const inputClasses =
-  "w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 focus:border-copper-500 focus:outline-none focus:ring-2 focus:ring-copper-500/20";
+  "w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 focus:border-ink-400 focus:outline-none focus:ring-2 focus:ring-ink-950/10";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
@@ -32,7 +32,7 @@ export default function ContactForm() {
     } else {
       setStatus("idle");
       setError(
-        result.message ?? "Não foi possível enviar. Tente pelo WhatsApp."
+        result.message ?? "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp."
       );
     }
   }
@@ -40,12 +40,12 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <div className="flex flex-col items-center rounded-2xl border border-ink-100 bg-ink-50 px-8 py-14 text-center">
-        <CheckCircle2 className="text-copper-600" size={36} />
-        <h3 className="font-display mt-4 text-lg font-bold text-ink-900">
-          Mensagem enviada!
+        <CheckCircle2 className="text-ink-400" size={32} strokeWidth={1.5} />
+        <h3 className="font-display mt-4 text-2xl leading-[1.15] text-ink-950">
+          Mensagem recebida
         </h3>
         <p className="mt-2 max-w-sm text-sm text-ink-500">
-          Nossa equipe vai retornar em breve pelos dados informados.
+          Obrigado pelo contato. Nossa equipe retorna em breve pelo telefone ou e-mail informado.
         </p>
       </div>
     );
@@ -75,19 +75,19 @@ export default function ContactForm() {
           placeholder="Telefone / WhatsApp"
           className={inputClasses}
         />
-        <input name="subject" placeholder="Assunto" className={inputClasses} />
+        <input name="subject" placeholder="Assunto (opcional)" className={inputClasses} />
       </div>
       <textarea
         required
         name="message"
-        placeholder="Mensagem"
+        placeholder="Como podemos ajudar?"
         rows={5}
         className={inputClasses}
       />
       <label className="flex items-start gap-2 text-xs text-ink-500">
         <input required type="checkbox" className="mt-0.5" />
         Li e concordo com a{" "}
-        <a href="/politica-de-privacidade" className="font-semibold text-copper-600">
+        <a href="/politica-de-privacidade" className="border-b border-ink-950/20 pb-0.5 font-medium text-ink-950 hover:border-ink-950">
           Política de Privacidade
         </a>{" "}
         do site.
@@ -97,7 +97,7 @@ export default function ContactForm() {
         {status === "loading" ? (
           <>
             <Loader2 className="animate-spin" size={18} />
-            Enviando...
+            Enviando
           </>
         ) : (
           "Enviar mensagem"

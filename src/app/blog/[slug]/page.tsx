@@ -47,12 +47,12 @@ export default async function BlogPostPage({
             className="inline-flex items-center gap-1 text-sm font-medium text-ink-300 hover:text-white"
           >
             <ArrowLeft size={16} />
-            Voltar ao blog
+            Todos os artigos
           </Link>
-          <span className="mt-6 inline-block rounded-full bg-copper-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+          <span className="mt-8 block text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-300">
             {post.category}
           </span>
-          <h1 className="font-display mt-4 max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h1 className="font-display mt-4 max-w-3xl text-3xl leading-[1.1] text-white sm:text-[2.6rem]">
             {post.title}
           </h1>
           <div className="mt-5 flex items-center gap-5 text-sm text-ink-400">

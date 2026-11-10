@@ -31,9 +31,9 @@ export default function Footer() {
               className="h-9 w-auto brightness-0 invert"
             />
             <p className="mt-4 text-sm leading-relaxed text-ink-400">
-              Construtora e incorporadora em São Paulo desde {siteConfig.founded},
-              com foco em conforto, estética e segurança para quem investe no
-              seu novo lar.
+              Construtora e incorporadora em São Paulo desde {siteConfig.founded}.
+              Projetamos e entregamos apartamentos com conforto, estética e
+              segurança.
             </p>
             <div className="mt-6 flex gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -43,7 +43,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-700 text-ink-300 transition-colors hover:border-copper-500 hover:text-copper-400"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-700 text-ink-300 transition-colors hover:border-ink-400 hover:text-white"
                 >
                   <Icon width={16} height={16} />
                 </a>
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+            <h3 className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-white">
               Navegação
             </h3>
             <ul className="mt-4 space-y-3">
@@ -60,7 +60,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-ink-400 transition-colors hover:text-copper-400"
+                    className="text-sm text-ink-400 transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+            <h3 className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-white">
               Acesso rápido
             </h3>
             <ul className="mt-4 space-y-3">
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-ink-400 transition-colors hover:text-copper-400"
+                    className="text-sm text-ink-400 transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -88,20 +88,20 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+            <h3 className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-white">
               Contato
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-ink-400">
               <li className="flex items-start gap-2">
-                <Phone size={16} className="mt-0.5 shrink-0 text-copper-500" />
+                <Phone size={16} className="mt-0.5 shrink-0 text-ink-500" />
                 {siteConfig.phone}
               </li>
               <li className="flex items-start gap-2">
-                <Mail size={16} className="mt-0.5 shrink-0 text-copper-500" />
+                <Mail size={16} className="mt-0.5 shrink-0 text-ink-500" />
                 {siteConfig.email}
               </li>
               <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-copper-500" />
+                <MapPin size={16} className="mt-0.5 shrink-0 text-ink-500" />
                 {siteConfig.address}
               </li>
             </ul>
@@ -110,14 +110,14 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-ink-800 pt-8 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} Evoluc — Todos os direitos
+            © {new Date().getFullYear()} Evoluc. Todos os direitos
             reservados.
           </p>
           <div className="flex gap-6">
-            <Link href="/politica-de-privacidade" className="hover:text-copper-400">
+            <Link href="/politica-de-privacidade" className="hover:text-white">
               Política de Privacidade
             </Link>
-            <Link href="/politica-de-qualidade" className="hover:text-copper-400">
+            <Link href="/politica-de-qualidade" className="hover:text-white">
               Política de Qualidade
             </Link>
           </div>
