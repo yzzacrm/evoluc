@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import { differentials } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
 
@@ -9,7 +10,7 @@ export default function Differentials() {
   return (
     <section className="bg-ink-950 py-20 sm:py-28">
       <Container>
-        <div className="mb-10 max-w-xl sm:mb-16">
+        <Reveal variant="left" className="mb-10 max-w-xl sm:mb-16">
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-copper-300">
             Por que a Evoluc
           </p>
@@ -18,9 +19,12 @@ export default function Differentials() {
             <br />
             <em className="italic text-ink-300">Novas histórias.</em>
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10">
+        <RevealGroup
+          variant="scale"
+          className="grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10"
+        >
           {differentials.map((item, i) => (
             <div
               key={item.title}
@@ -40,7 +44,7 @@ export default function Differentials() {
               />
             </div>
           ))}
-        </div>
+        </RevealGroup>
       </Container>
     </section>
   );

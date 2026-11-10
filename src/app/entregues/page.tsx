@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import Container from "@/components/ui/Container";
+import { RevealGroup } from "@/components/ui/Reveal";
 import DevelopmentCard from "@/components/developments/DevelopmentCard";
 import { deliveredExamples } from "@/lib/data";
 
@@ -21,11 +22,11 @@ export default function EntreguesPage() {
 
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <RevealGroup variant="scale" className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {deliveredExamples.map((dev) => (
               <DevelopmentCard key={dev.slug} dev={dev} />
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 

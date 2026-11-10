@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/forms/ContactForm";
 import { siteConfig } from "@/lib/site-config";
 import { Phone, Mail, MapPin } from "lucide-react";
@@ -22,7 +23,7 @@ export default function FaleConoscoPage() {
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-5">
-            <div className="lg:col-span-2 space-y-6">
+            <Reveal variant="left" className="lg:col-span-2 space-y-6">
               <InfoRow icon={Phone} label="Telefone" value={siteConfig.phone} />
               <InfoRow
                 icon={Phone}
@@ -41,11 +42,11 @@ export default function FaleConoscoPage() {
                   Mapa / localização
                 </div>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-span-3">
+            <Reveal delay={0.1} className="lg:col-span-3">
               <ContactForm />
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>

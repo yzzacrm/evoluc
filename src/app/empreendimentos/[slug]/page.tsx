@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import Reveal, { RevealGroup } from "@/components/ui/Reveal";
 import JsonLd from "@/components/JsonLd";
 import { developments, deliveredExamples, Development } from "@/lib/data";
 import { getWhatsappUrl } from "@/lib/site-config";
@@ -168,7 +169,10 @@ export default async function DevelopmentDetailPage({
         return (
           <section className="py-16">
             <Container>
-              <div className="grid grid-cols-2 gap-6 rounded-2xl border border-ink-100 p-6 sm:grid-cols-4 sm:p-8">
+              <RevealGroup
+                variant="scale"
+                className="grid grid-cols-2 gap-6 rounded-2xl border border-ink-100 p-6 sm:grid-cols-4 sm:p-8"
+              >
                 {stats.map((s) => (
                   <Stat
                     key={s.label}
@@ -177,7 +181,7 @@ export default async function DevelopmentDetailPage({
                     value={s.value}
                   />
                 ))}
-              </div>
+              </RevealGroup>
             </Container>
           </section>
         );
@@ -186,7 +190,7 @@ export default async function DevelopmentDetailPage({
       <section className="pb-16">
         <Container>
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-3">
-            <div className="lg:col-span-2">
+            <Reveal className="lg:col-span-2">
               <h2 className="font-display text-3xl leading-[1.1] text-ink-950 sm:text-4xl">
                 Sobre o empreendimento
               </h2>
@@ -279,7 +283,7 @@ export default async function DevelopmentDetailPage({
                   <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
                     Galeria
                   </h3>
-                  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  <RevealGroup variant="scale" className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                     {dev.gallery.map((src, i) => (
                       <div
                         key={src}
@@ -294,7 +298,7 @@ export default async function DevelopmentDetailPage({
                         />
                       </div>
                     ))}
-                  </div>
+                  </RevealGroup>
                 </div>
               )}
 
@@ -303,7 +307,7 @@ export default async function DevelopmentDetailPage({
                   <h3 className="font-serif-display text-2xl leading-[1.1] text-ink-950">
                     Plantas
                   </h3>
-                  <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <RevealGroup variant="scale" className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     {dev.plans.map((plan) => (
                       <div
                         key={plan.label}
@@ -323,7 +327,7 @@ export default async function DevelopmentDetailPage({
                         </p>
                       </div>
                     ))}
-                  </div>
+                  </RevealGroup>
                 </div>
               )}
 
@@ -361,7 +365,7 @@ export default async function DevelopmentDetailPage({
                   </div>
                 </div>
               )}
-            </div>
+            </Reveal>
 
             <aside>
               {dev.amenities.length > 0 && (

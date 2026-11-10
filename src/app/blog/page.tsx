@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import Container from "@/components/ui/Container";
+import { RevealGroup } from "@/components/ui/Reveal";
 import BlogCard from "@/components/blog/BlogCard";
 import { blogPosts } from "@/lib/data";
 
@@ -20,11 +21,11 @@ export default function BlogPage() {
       />
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <RevealGroup variant="scale" className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {blogPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
     </>
