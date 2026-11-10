@@ -269,28 +269,30 @@ export default function ScrollFrameHero() {
             opacity: introOpacity,
             pointerEvents: introOpacity > 0.05 ? "auto" : "none",
           }}
-          className="absolute inset-0 flex items-end pb-20 sm:items-center sm:pb-0"
+          className="absolute inset-0 flex items-end justify-center pb-24 text-center sm:items-center sm:pb-0"
         >
           <Container>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-copper-400 [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-sm">
-              {siteConfig.name}
-            </p>
-            <h1 className="font-display mt-3 max-w-2xl text-[1.75rem] font-extrabold leading-tight text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.6),0_4px_24px_rgba(0,0,0,0.5)] sm:mt-4 sm:text-5xl lg:text-6xl">
-              {siteConfig.slogan}
-            </h1>
-            <p className="mt-3 max-w-xl text-sm font-semibold text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.8),0_2px_14px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-lg">
-              Aqui nascem lares abençoados e famílias felizes. Cada
-              apartamento Evoluc é pensado para guardar as histórias da sua
-              vida, com toda a estrutura de lazer e segurança que sua
-              família merece.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
-              <Button href="/lancamentos" size="lg">
-                Ver lançamentos
-              </Button>
-              <Button href="/simular-financiamento" variant="secondary" size="lg">
-                Simular financiamento
-              </Button>
+            <div className="mx-auto max-w-3xl">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-copper-400 [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-xs">
+                {siteConfig.name}
+              </p>
+              <h1 className="font-serif-display mx-auto mt-5 max-w-2xl text-[2.1rem] font-medium leading-[1.02] tracking-tight text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.6),0_4px_24px_rgba(0,0,0,0.5)] sm:mt-7 sm:text-6xl lg:text-7xl">
+                {siteConfig.slogan}
+              </h1>
+              <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.8),0_2px_14px_rgba(0,0,0,0.6)] sm:mt-6 sm:text-base">
+                Aqui nascem lares abençoados e famílias felizes. Cada
+                apartamento Evoluc é pensado para guardar as histórias da sua
+                vida, com toda a estrutura de lazer e segurança que sua
+                família merece.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4">
+                <Button href="/lancamentos" size="lg">
+                  Ver lançamentos
+                </Button>
+                <Button href="/simular-financiamento" variant="secondary" size="lg">
+                  Simular financiamento
+                </Button>
+              </div>
             </div>
           </Container>
         </div>
@@ -298,10 +300,10 @@ export default function ScrollFrameHero() {
         {/* Legenda do quadro */}
         <div
           style={{ opacity: 1 - introOpacity }}
-          className="absolute inset-x-0 bottom-0 pb-6 sm:pb-10"
+          className="absolute inset-x-0 bottom-0 pb-6 text-center sm:pb-10"
         >
           <Container>
-            <p className="font-display max-w-md text-base font-semibold text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-2xl">
+            <p className="font-serif-display mx-auto max-w-md text-base font-medium text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-2xl">
               {CAPTION}
             </p>
           </Container>

@@ -75,6 +75,12 @@ body {
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
 }
 
+/* Fonte serifada do estilo "Scroll Imobiliario" — usada só na hero da home
+   e na seção "Por que a Evoluc", sem alterar os títulos do resto do site. */
+.font-serif-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
 ::selection {
   background: var(--color-copper-300);
   color: var(--color-ink-950);
