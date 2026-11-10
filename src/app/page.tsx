@@ -1,4 +1,4 @@
-import ScrollVideoHero from "@/components/home/ScrollVideoHero";
+import ScrollFrameHero from "@/components/home/ScrollFrameHero";
 import TrustBar from "@/components/home/TrustBar";
 import Differentials from "@/components/home/Differentials";
 import DevelopmentsPreview from "@/components/home/DevelopmentsPreview";
@@ -10,7 +10,7 @@ import FinalCta from "@/components/home/FinalCta";
 export default function Home() {
   return (
     <>
-      <ScrollVideoHero />
+      <ScrollFrameHero />
       <TrustBar />
       <DevelopmentsPreview />
       <AboutPreview />
