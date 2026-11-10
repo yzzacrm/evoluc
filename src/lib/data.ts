@@ -41,7 +41,6 @@ export const developments: Development[] = [
     slug: "terras-raras-vila-carrao",
     name: "Terras Raras Vila Carrão",
     status: "em-obras",
-    promoBadge: "Feirão",
     heroVideo: {
       src: "/videos/lp-terras-raras-hero.mp4",
       poster: "/videos/lp-terras-raras-hero-poster.jpg",
@@ -53,16 +52,16 @@ export const developments: Development[] = [
     units: 176,
     parkingSpots: 93,
     typologies: "1, 2 e 3 quartos",
-    tagline: "Em construção no centro da Vila Carrão.",
+    tagline: "Apartamentos de 1, 2 e 3 quartos, em obras no centro da Vila Carrão.",
     description:
-      "Com terreno amplo de 2.129 m², o Terras Raras Vila Carrão reúne 176 unidades entre 1, 2 e 3 quartos em um dos bairros mais consolidados da Zona Leste. Mais de 600 m² de área de lazer e as melhores plantas da região, com localização estratégica próxima a comércio, escolas e vias de acesso.",
+      "Em um terreno de 2.129 m², o Terras Raras Vila Carrão reúne 176 unidades de 1, 2 e 3 quartos em um dos bairros mais consolidados da Zona Leste. São mais de 600 m² de lazer, plantas bem resolvidas e uma localização que deixa comércio, escolas e vias de acesso perto de você.",
     highlights: [
       "Mais de 600 m² de área de lazer",
-      "As melhores plantas da região",
-      "Um dos maiores lançamentos da Evoluc em área de terreno",
-      "176 unidades com opções para diferentes perfis de família",
+      "Plantas bem resolvidas, de 1 a 3 quartos",
+      "Um dos maiores terrenos já desenvolvidos pela Evoluc",
+      "176 unidades para diferentes perfis de família",
       "93 vagas de garagem",
-      "Bairro consolidado, próximo a shoppings e rede de transporte público",
+      "Bairro consolidado, perto de shoppings e do transporte público",
     ],
     amenities: [
       "Portaria 24h com controle de acesso",
@@ -119,24 +118,24 @@ export const deliveredExamples: Development[] = [
     units: 81,
     parkingSpots: 38,
     typologies: "Studio, 1 e 2 quartos",
-    tagline: "Entregue e 100% vendido — o primeiro da região com piscina no rooftop.",
+    tagline: "Entregue e 100% vendido. O primeiro da região com piscina no rooftop.",
     description:
-      "Um empreendimento desenvolvido com arquitetura moderna, espaços bem dimensionados, tecnologia e otimização, sendo o primeiro da região com piscina no rooftop, em localização privilegiada de Itaquera, a poucos metros do maior centro de compras do bairro, o Shopping Metrô Itaquera, e das estações de metrô e CPTM, Fatec, Etec, Sesi e universidades, com fácil acesso viário para rodovias estaduais, interestaduais e para o litoral paulista. Nas proximidades também há opções de lazer como o Parque do Carmo, a Arena Neo Química, o Sesc e o Aquário de Itaquera, além de conveniências como o Shopping Aricanduva e o Hospital Santa Marcelina. O Oberon Itaquera foi entregue com 100% das unidades vendidas — um retrato da qualidade em construção e acabamento que move a Evoluc.",
+      "Arquitetura moderna, ambientes bem dimensionados e soluções de tecnologia que otimizam cada metro. O Oberon Itaquera foi o primeiro da região com piscina no rooftop. Está a poucos metros do Shopping Metrô Itaquera, o maior centro de compras do bairro, das estações de metrô e CPTM, da Fatec, da Etec, do Sesi e de universidades, com acesso fácil às rodovias estaduais e interestaduais e ao litoral paulista. Por perto ficam o Parque do Carmo, a Arena Neo Química, o Sesc e o Aquário de Itaquera, além do Shopping Aricanduva e do Hospital Santa Marcelina. Entregue com 100% das unidades vendidas, é um retrato do padrão de construção e acabamento da Evoluc.",
     highlights: [
       "100% das unidades vendidas",
-      "Unidades com opções de 0 ou 1 vaga de garagem",
-      "Área de serviço e cozinha com ventilação natural",
-      "Gerador de emergência para as áreas comuns",
+      "Unidades com 0 ou 1 vaga de garagem",
+      "Cozinha e área de serviço com ventilação natural",
+      "Gerador de emergência nas áreas comuns",
       "Estrutura em concreto armado",
-      "Varanda integrada com pontos para ar-condicionado",
-      "Piso do terraço no mesmo nível da sala",
+      "Varanda integrada, com pontos para ar-condicionado",
+      "Terraço com piso no mesmo nível da sala",
       "Janelas com persianas integradas",
-      "Ventilação natural nos banheiros",
-      "Varanda com ponto para churrasqueira tipo grill elétrica",
+      "Banheiros com ventilação natural",
+      "Varanda com ponto para churrasqueira elétrica tipo grill",
     ],
     amenities: [
       "Portaria com controle de acesso",
-      "Piscina no rooftop — a primeira da região",
+      "Piscina no rooftop, a primeira da região",
       "Espaço gourmet no rooftop",
       "Salão de festas",
       "Playground",
@@ -185,8 +184,8 @@ export const deliveredExamples: Development[] = [
     story: {
       title: "A história por trás do nome",
       paragraphs: [
-        "O Residencial Oberon é um monumento à palavra dada. A negociação pelo seu terreno foi longa e árdua. Para selar a confiança com o proprietário, um homem de muita história, a Evoluc fez mais do que uma promessa de negócio — fez um pacto de honra: o empreendimento levaria o sobrenome de sua família, Oberon.",
-        "A vida não permitiu que o Sr. Oberon visse a obra concluída — ele partiu meses antes. Mas seu legado não. Tempo depois, sua filha visitou o local e, ao ler o nome \"Residencial Oberon\" gravado na estrutura, seus olhos se encheram de lágrimas. Ali, ela não viu um prédio. Viu a eternidade do nome de seu pai.",
+        "O Residencial Oberon é um monumento à palavra dada. A negociação do terreno foi longa e difícil. Para selar a confiança com o proprietário, um homem de muita história, a Evoluc fez mais do que uma proposta de negócio. Firmou um pacto de honra: o empreendimento levaria o sobrenome da família dele, Oberon.",
+        "O Sr. Oberon não chegou a ver a obra concluída. Partiu meses antes, mas o legado ficou. Tempo depois, a filha dele visitou o local e, ao ler \"Residencial Oberon\" gravado na estrutura, seus olhos se encheram de lágrimas. Ali ela não viu um prédio. Viu o nome do pai, para sempre.",
       ],
     },
   },
@@ -203,9 +202,9 @@ export const deliveredExamples: Development[] = [
     units: 0,
     parkingSpots: 0,
     typologies: "—",
-    tagline: "Entregue e 100% vendido — na região do Parque do Carmo.",
+    tagline: "Entregue e 100% vendido, na região do Parque do Carmo.",
     description:
-      "Empreendimento Evoluc entregue e com 100% das unidades vendidas, na região do Parque do Carmo, Zona Leste de São Paulo. Envie número de unidades, vagas, tipologias e uma descrição detalhada para completarmos esta página.",
+      "Um empreendimento Evoluc na região do Parque do Carmo, Zona Leste de São Paulo, entregue com 100% das unidades vendidas.",
     highlights: ["100% das unidades vendidas"],
     amenities: [],
     heroImage: "/images/developments/vista-livre/gallery-01-fachada-aerea.jpg",
@@ -230,19 +229,19 @@ export const testimonials: Testimonial[] = [
     name: "Morador(a) — [nome a confirmar]",
     development: "Empreendimento entregue",
     quote:
-      "Espaço reservado para depoimento real de morador sobre a experiência de compra, acompanhamento de obra e entrega das chaves.",
+      "Espaço reservado para o depoimento de um morador sobre a compra, o acompanhamento da obra e a entrega das chaves.",
   },
   {
     name: "Morador(a) — [nome a confirmar]",
     development: "Empreendimento entregue",
     quote:
-      "Espaço reservado para depoimento real sobre atendimento comercial, qualidade de acabamento e suporte pós-entrega.",
+      "Espaço reservado para o depoimento de um morador sobre o atendimento comercial, o acabamento e o suporte depois da entrega.",
   },
   {
     name: "Morador(a) — [nome a confirmar]",
     development: "Empreendimento entregue",
     quote:
-      "Espaço reservado para depoimento real sobre a experiência com a Área do Morador e comunicação durante a obra.",
+      "Espaço reservado para o depoimento de um morador sobre a Área do Morador e a comunicação durante a obra.",
   },
 ];
 
@@ -255,32 +254,32 @@ export const differentials: Differential[] = [
   {
     title: "Certificação PBQP-H",
     description:
-      "Processos construtivos avaliados dentro do Programa Brasileiro de Qualidade e Produtividade do Habitat, com foco em padronização e controle de qualidade.",
+      "Processos construtivos avaliados pelo Programa Brasileiro de Qualidade e Produtividade do Habitat, com padronização e controle de qualidade em cada etapa.",
   },
   {
-    title: "Gestão de obra transparente",
+    title: "Obra acompanhada de perto",
     description:
-      "Acompanhamento de cronograma físico-financeiro e comunicação direta com o cliente durante toda a construção, incluindo atualizações pela Área do Morador.",
+      "Cronograma físico-financeiro acompanhado e comunicação direta com você durante toda a construção, com atualizações na Área do Morador.",
   },
   {
     title: "Localização estratégica",
     description:
-      "Empreendimentos escolhidos com base em proximidade a transporte público, comércio e serviços, priorizando mobilidade urbana.",
+      "Terrenos escolhidos pela proximidade com transporte público, comércio e serviços, para que você se desloque com facilidade.",
   },
   {
     title: "Atendimento pós-entrega",
     description:
-      "Canal dedicado para assistência técnica, garantia e suporte ao morador após a entrega das chaves.",
+      "Um canal dedicado à assistência técnica, à garantia e ao suporte depois que você recebe as chaves.",
   },
   {
-    title: "Plantas pensadas para o dia a dia",
+    title: "Plantas para o dia a dia",
     description:
-      "Estudo de layout com foco em aproveitamento de espaço, ventilação natural e funcionalidade dos ambientes.",
+      "Layouts estudados para aproveitar bem o espaço, favorecer a ventilação natural e dar função clara a cada ambiente.",
   },
   {
-    title: "Relacionamento de longo prazo",
+    title: "Relações de longo prazo",
     description:
-      "Desde 2012 construindo relações duradouras com clientes, corretores parceiros e fornecedores.",
+      "Desde 2012, construímos relações duradouras com clientes, corretores parceiros e fornecedores.",
   },
 ];
 
@@ -299,9 +298,9 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "minha-casa-minha-vida-classe-media",
     title:
-      "Saiba como funciona o Minha Casa, Minha Vida — Classe Média",
+      "Minha Casa, Minha Vida para a classe média: como funciona",
     excerpt:
-      "Famílias com renda de até R$ 12 mil podem financiar imóveis novos ou usados de até R$ 500 mil dentro do programa.",
+      "Famílias com renda de até R$ 12 mil podem financiar imóveis novos ou usados de até R$ 500 mil pelo programa. Veja as condições.",
     content: [
       "As famílias com renda mensal bruta de até R$ 12 mil já podem ingressar na faixa de Classe Média do programa Minha Casa, Minha Vida, com condições facilitadas de financiamento para imóveis novos ou usados.",
       "Entre os principais pontos do programa estão taxas de juros mais competitivas em relação ao financiamento tradicional, prazos estendidos de pagamento e a possibilidade de uso do FGTS na composição da entrada.",
@@ -314,9 +313,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "como-escolher-metragem-ideal-apartamento",
-    title: "Como escolher a metragem ideal do seu apartamento",
+    title: "Como escolher a metragem certa para o seu apartamento",
     excerpt:
-      "Studio, 1, 2 ou 3 quartos? Entenda os critérios para decidir a planta certa para o seu momento de vida.",
+      "Studio, 1, 2 ou 3 quartos. Os critérios que ajudam a escolher a planta adequada ao seu momento de vida.",
     content: [
       "A escolha da metragem de um apartamento vai além do preço por metro quadrado: envolve rotina, número de moradores, perspectiva de crescimento da família e uso dos ambientes comuns do condomínio.",
       "Studios e apartamentos de 1 quarto costumam atender bem quem busca praticidade e proximidade com regiões centrais ou bem servidas de transporte. Já plantas de 2 e 3 quartos favorecem famílias que precisam de espaços separados para descanso, trabalho remoto e convivência.",
@@ -329,9 +328,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "o-que-observar-durante-acompanhamento-de-obra",
-    title: "O que observar durante o acompanhamento da obra",
+    title: "Acompanhamento de obra: o que observar em cada etapa",
     excerpt:
-      "Entenda as etapas da construção e como a Área do Morador ajuda a acompanhar cada fase do seu imóvel.",
+      "Conheça as fases da construção e veja como a Área do Morador ajuda você a acompanhar cada uma delas.",
     content: [
       "Do lançamento à entrega das chaves, uma obra passa por etapas como fundação, estrutura, alvenaria, instalações e acabamento. Cada uma tem prazos e marcos próprios dentro do cronograma físico-financeiro.",
       "Acompanhar essas etapas ajuda o comprador a entender o andamento do investimento e planejar mudanças, financiamento e reformas com antecedência.",
