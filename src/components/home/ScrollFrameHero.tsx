@@ -14,40 +14,40 @@ import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site-config";
 
-// Hero com sequência de imagens (120 quadros extraídos do vídeo do Terras
-// Raras: a obra, o prédio subindo e o casal na varanda) desenhada num
-// <canvas> e "esfregada" pelo scroll — técnica do pacote "Scroll
-// Imobiliario". Diferente do <video>, não depende do navegador decodificar
-// vídeo durante o scroll, então não há risco de tela preta/azulada no
-// primeiro scroll no mobile.
+// Hero com sequência de imagens (90 quadros extraídos do vídeo do
+// apartamento decorado Evoluc) desenhada num <canvas> e "esfregada" pelo
+// scroll — técnica do pacote "Scroll Imobiliario". Diferente do <video>,
+// não depende do navegador decodificar vídeo durante o scroll, então não
+// há risco de tela preta/azulada no primeiro scroll no mobile.
 
-const FRAME_COUNT = 120;
+const FRAME_COUNT = 90;
 
 // Uma legenda por trecho do vídeo; `ate` é a fração do scroll em que o
-// trecho termina (obra até 38%, prédio subindo até 72%, depois a varanda).
+// trecho termina.
 const CAPTIONS = [
-  { ate: 0.38, texto: "Tudo começa no canteiro, com gente que constrói de verdade." },
-  { ate: 0.72, texto: "Andar por andar, até a entrega das chaves." },
-  { ate: 1.01, texto: "E termina na varanda de quem chegou em casa." },
+  { ate: 1.01, texto: "Bem-vindo ao apartamento decorado Evoluc." },
 ];
 
 type Source = {
   base: string;
   poster: string;
+  pad: number;
 };
 
 const desktopSource: Source = {
-  base: "/images/hero-sequence-obra/desktop",
-  poster: "/images/hero-sequence-obra/poster-desktop.jpg",
+  base: "/images/hero-sequence/desktop",
+  poster: "/videos/take-1-poster.jpg",
+  pad: 2,
 };
 
 const mobileSource: Source = {
-  base: "/images/hero-sequence-obra/mobile",
-  poster: "/images/hero-sequence-obra/poster-mobile.jpg",
+  base: "/images/hero-sequence/mobile",
+  poster: "/videos/mobile/take-1-poster.jpg",
+  pad: 2,
 };
 
-function frameSrc(base: string, index: number) {
-  return `${base}/img${String(index + 1).padStart(3, "0")}.webp`;
+function frameSrc(base: string, index: number, pad: number) {
+  return `${base}/img${String(index + 1).padStart(pad, "0")}.webp`;
 }
 
 function clamp01(n: number) {
@@ -128,7 +128,7 @@ export default function ScrollFrameHero() {
   }, []);
 
   const loadFrame = useCallback(
-    (base: string, index: number) => {
+    (src: Source, index: number) => {
       if (index < 0 || index >= FRAME_COUNT) return;
       if (imagesRef.current[index]) return;
 
@@ -144,18 +144,18 @@ export default function ScrollFrameHero() {
         imagesRef.current[index] = null;
         if (index === 0) setFailed(true);
       };
-      img.src = frameSrc(base, index);
+      img.src = frameSrc(src.base, index, src.pad);
     },
     [drawFrame]
   );
 
   const requestFrame = useCallback(
-    (base: string, index: number) => {
+    (src: Source, index: number) => {
       desiredIndexRef.current = index;
       if (drawFrame(index)) return;
-      loadFrame(base, index);
-      loadFrame(base, index + 1);
-      loadFrame(base, index - 1);
+      loadFrame(src, index);
+      loadFrame(src, index + 1);
+      loadFrame(src, index - 1);
     },
     [drawFrame, loadFrame]
   );
@@ -166,7 +166,7 @@ export default function ScrollFrameHero() {
       FRAME_COUNT - 1,
       Math.max(0, Math.round(progress * (FRAME_COUNT - 1)))
     );
-    requestFrame(source.base, index);
+    requestFrame(source, index);
     setIntroOpacity(1 - clamp01(progress / 0.06));
     setScrollCueOpacity(1 - clamp01(progress / 0.04));
     setCaptionIndex(Math.max(0, CAPTIONS.findIndex((c) => progress < c.ate)));
@@ -176,7 +176,6 @@ export default function ScrollFrameHero() {
   // redesenha o canvas quando a janela é redimensionada.
   useEffect(() => {
     if (!source) return;
-    const base = source.base;
 
     imagesRef.current = Array(FRAME_COUNT).fill(null);
     renderedIndexRef.current = -1;
@@ -191,7 +190,7 @@ export default function ScrollFrameHero() {
     };
 
     resizeCanvas();
-    requestFrame(base, 0);
+    requestFrame(source, 0);
 
     let nextIndex = 6;
     let idleHandle: number | undefined;
@@ -199,7 +198,7 @@ export default function ScrollFrameHero() {
     const loadBatch = () => {
       const end = Math.min(FRAME_COUNT, nextIndex + 8);
       while (nextIndex < end) {
-        loadFrame(base, nextIndex);
+        loadFrame(source, nextIndex);
         nextIndex += 1;
       }
       if (nextIndex < FRAME_COUNT) {
@@ -331,7 +330,7 @@ export default function ScrollFrameHero() {
           className="pointer-events-none absolute inset-x-0 bottom-24 hidden flex-col items-center text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_2px_10px_rgba(0,0,0,0.7)] sm:flex"
         >
           <span className="text-xs font-medium uppercase tracking-[0.3em]">
-            Role para ver a obra
+            Role para ver o decorado
           </span>
           <ChevronDown className="mt-2" size={20} />
         </div>
