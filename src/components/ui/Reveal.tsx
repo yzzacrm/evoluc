@@ -57,7 +57,7 @@ export default function Reveal({
       className={className}
       initial="hidden"
       whileInView="shown"
-      viewport={{ once: true, margin: "0px 0px -10% 0px", amount: 0.2 }}
+      viewport={{ once: true, margin: "0px 0px -10% 0px", amount: "some" }}
       variants={variants(variant)}
       transition={{
         duration: duration ?? (variant === "scale" ? 0.75 : 0.7),
@@ -93,7 +93,7 @@ export function RevealGroup({
       className={className}
       initial="hidden"
       whileInView="shown"
-      viewport={{ once: true, margin: "0px 0px -10% 0px", amount: 0.15 }}
+      viewport={{ once: true, margin: "0px 0px -10% 0px", amount: "some" }}
       variants={{
         hidden: {},
         shown: { transition: { staggerChildren: stagger } },
